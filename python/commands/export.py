@@ -654,20 +654,11 @@ class ExportCommands:
         Only lines from the current server session (today's date) are included
         to keep the file focused on the relevant run.
         """
-        import platform
+        from utils.mcp_client_logs import resolve_mcp_client_log
 
-        # Resolve Claude log path per platform
-        system = platform.system()
-        if system == "Windows":
-            log_dir = os.path.join(os.environ.get("APPDATA", ""), "Claude", "logs")
-        elif system == "Darwin":
-            log_dir = os.path.expanduser("~/Library/Logs/Claude")
-        else:
-            log_dir = os.path.expanduser("~/.config/Claude/logs")
-
-        log_src = os.path.join(log_dir, "mcp-server-kicad.log")
-        if not os.path.exists(log_src):
-            logger.warning(f"[DEV] MCP log not found at: {log_src}")
+        log_src = resolve_mcp_client_log()
+        if not log_src:
+            logger.warning("[DEV] MCP client log not found (checked Codex and legacy Claude paths)")
             return
 
         # Project dir = parent of outputDir (the Gerber subfolder)

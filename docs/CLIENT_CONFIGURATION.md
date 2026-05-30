@@ -8,13 +8,50 @@ This guide shows how to configure the KiCAD MCP Server with various MCP-compatib
 
 | Client             | Config File Location                                                                                                                                                                       |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **OpenAI Codex CLI** | All platforms: `~/.codex/config.toml`                                                                                                                                                    |
 | **Claude Desktop** | Linux: `~/.config/Claude/claude_desktop_config.json`<br>macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`<br>Windows: `%APPDATA%\Claude\claude_desktop_config.json` |
 | **Cline (VSCode)** | VSCode Settings → Extensions → Cline → MCP Settings                                                                                                                                        |
 | **Claude Code**    | `~/.config/claude-code/mcp_config.json`                                                                                                                                                    |
 
 ---
 
-## 1. Claude Desktop
+## 1. OpenAI Codex CLI
+
+Codex CLI uses TOML configuration under `~/.codex/config.toml`.
+
+**Example:**
+
+```toml
+[mcp_servers.kicad]
+command = "node"
+args = ["/absolute/path/to/KiCAD-MCP-Server/dist/index.js"]
+enabled = true
+startup_timeout_sec = 30
+tool_timeout_sec = 300
+
+[mcp_servers.kicad.env]
+PYTHONPATH = "/usr/lib/kicad/lib/python3/dist-packages"
+NODE_ENV = "production"
+KICAD_MCP_DEV = "0"
+```
+
+**macOS automated setup:**
+
+```bash
+bash setup-macos.sh --apply
+```
+
+**Verify:**
+
+```bash
+codex mcp list
+```
+
+See also `config/codex-config.example.toml`.
+
+---
+
+## 2. Claude Desktop
 
 ### Linux Configuration
 

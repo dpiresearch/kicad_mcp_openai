@@ -9,15 +9,15 @@
     - Testing KiCAD Python module (pcbnew)
     - Installing required Python dependencies
     - Building the TypeScript project
-    - Generating Claude Desktop configuration
+    - Generating Codex CLI configuration
     - Running diagnostic tests
 
 .PARAMETER SkipBuild
     Skip the npm build step (useful if already built)
 
 .PARAMETER ClientType
-    Type of MCP client to configure: 'claude-desktop', 'cline', or 'manual'
-    Default: 'claude-desktop'
+    Type of MCP client to configure: 'codex', 'cline', or 'manual'
+    Default: 'codex'
 
 .EXAMPLE
     .\setup-windows.ps1
@@ -34,8 +34,8 @@
 
 param(
     [switch]$SkipBuild,
-    [ValidateSet('claude-desktop', 'cline', 'manual')]
-    [string]$ClientType = 'claude-desktop'
+    [ValidateSet('codex', 'cline', 'manual')]
+    [string]$ClientType = 'codex'
 )
 
 # Color output helpers
@@ -259,7 +259,25 @@ if ($kicad -and $script:Results.ProjectBuilt) {
     $distPathEscaped = $distPath -replace '\\', '\\'
     $pythonLibEscaped = $kicad.PythonLib -replace '\\', '\\'
 
-    $config = @"
+    if ($ClientType -eq 'codex') {
+        $config = @"
+[mcp_servers.kicad]
+command = "node"
+args = ['$distPath']
+enabled = true
+startup_timeout_sec = 30
+tool_timeout_sec = 300
+
+[mcp_servers.kicad.env]
+KICAD_PYTHON = '$($kicad.PythonExe)'
+PYTHONPATH = '$($kicad.PythonLib)'
+NODE_ENV = "production"
+LOG_LEVEL = "info"
+KICAD_MCP_DEV = "0"
+"@
+        $configPath = Join-Path $ProjectRoot "windows-codex-config.toml"
+    } else {
+        $config = @"
 {
   "mcpServers": {
     "kicad": {
@@ -274,8 +292,9 @@ if ($kicad -and $script:Results.ProjectBuilt) {
   }
 }
 "@
+        $configPath = Join-Path $ProjectRoot "windows-mcp-config.json"
+    }
 
-    $configPath = Join-Path $ProjectRoot "windows-mcp-config.json"
     $config | Out-File -FilePath $configPath -Encoding UTF8
     Write-Success "Configuration generated: $configPath"
     $script:Results.ConfigGenerated = $true
@@ -286,13 +305,14 @@ if ($kicad -and $script:Results.ProjectBuilt) {
     # Provide instructions based on client type
     Write-Info "`nTo use this configuration:"
 
-    if ($ClientType -eq 'claude-desktop') {
-        $claudeConfigPath = "$env:APPDATA\Claude\claude_desktop_config.json"
-        Write-Host "`n1. Open Claude Desktop configuration:" -ForegroundColor Yellow
-        Write-Host "   $claudeConfigPath" -ForegroundColor White
-        Write-Host "`n2. Copy the contents from:" -ForegroundColor Yellow
+    if ($ClientType -eq 'codex') {
+        $codexConfigPath = "$env:USERPROFILE\.codex\config.toml"
+        Write-Host "`n1. Open Codex CLI configuration:" -ForegroundColor Yellow
+        Write-Host "   $codexConfigPath" -ForegroundColor White
+        Write-Host "`n2. Copy the generated TOML fragment from:" -ForegroundColor Yellow
         Write-Host "   $configPath" -ForegroundColor White
-        Write-Host "`n3. Restart Claude Desktop" -ForegroundColor Yellow
+        Write-Host "`n3. Restart Codex CLI" -ForegroundColor Yellow
+        Write-Host "`n   codex mcp list" -ForegroundColor Gray
     } elseif ($ClientType -eq 'cline') {
         $clineConfigPath = "$env:APPDATA\Code\User\globalStorage\saoudrizwan.claude-dev\settings\cline_mcp_settings.json"
         Write-Host "`n1. Open Cline configuration:" -ForegroundColor Yellow
@@ -394,7 +414,7 @@ if ($isSuccess) {
     Write-Host "" -ForegroundColor Green
     Write-Host "  Next steps:" -ForegroundColor Green
     Write-Host "  1. Copy the generated config to your MCP client" -ForegroundColor Green
-    Write-Host "  2. Restart your MCP client (Claude Desktop/Cline)" -ForegroundColor Green
+    Write-Host "  2. Restart your MCP client (Codex CLI/Cline)" -ForegroundColor Green
     Write-Host "  3. Try: 'Create a new KiCAD project'" -ForegroundColor Green
     Write-Host "============================================================" -ForegroundColor Green
 } else {

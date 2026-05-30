@@ -1,0 +1,16 @@
+# Example Codex CLI MCP configuration for KiCAD MCP Server.
+# Copy the [mcp_servers.kicad] section into ~/.codex/config.toml
+# or run: bash setup-macos.sh --apply
+
+[mcp_servers.kicad]
+command = "node"
+args = ["/absolute/path/to/KiCAD-MCP-Server/dist/index.js"]
+enabled = true
+startup_timeout_sec = 30
+tool_timeout_sec = 300
+
+[mcp_servers.kicad.env]
+KICAD_PYTHON = "/Applications/KiCad/KiCad.app/Contents/Frameworks/Python.framework/Versions/Current/bin/python3"
+PYTHONPATH = "/Applications/KiCad/KiCad.app/Contents/Frameworks/Python.framework/Versions/Current/lib/python3.11/site-packages"
+LOG_LEVEL = "info"
+KICAD_MCP_DEV = "0"

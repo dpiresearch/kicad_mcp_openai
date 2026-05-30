@@ -28,7 +28,7 @@ class BoardOutlineCommands:
                     "errorDetails": "Load or create a board first",
                 }
 
-            # Claude sends dimensions nested inside a "params" key:
+            # Some MCP clients send dimensions nested inside a "params" key:
             # {"shape": "rectangle", "params": {"x": 0, "y": 0, "width": 38, ...}}
             # Unwrap the inner dict if present so we read dimensions from the right level.
             inner = params.get("params", params)

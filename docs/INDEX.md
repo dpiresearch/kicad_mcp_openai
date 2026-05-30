@@ -11,7 +11,7 @@ KiCAD MCP Server -- AI-assisted PCB design via Model Context Protocol
 | Document                                        | Description                                                    |
 | ----------------------------------------------- | -------------------------------------------------------------- |
 | [README](../README.md)                          | Project overview, installation, configuration, quick start     |
-| [Client Configuration](CLIENT_CONFIGURATION.md) | MCP client setup (Claude Desktop, Cline, Claude Code)          |
+| [Client Configuration](CLIENT_CONFIGURATION.md) | MCP client setup (OpenAI Codex CLI, Claude Desktop, Cline)     |
 | [Platform Guide](PLATFORM_GUIDE.md)             | Linux vs Windows vs macOS differences                          |
 | [PCB Design Workflow](PCB_DESIGN_WORKFLOW.md)   | End-to-end design guide from project creation to manufacturing |
 

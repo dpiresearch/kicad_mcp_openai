@@ -24,6 +24,7 @@ types-Pillow>=10.0.0
 # Pre-commit hooks
 pre-commit>=3.3.0
 
-# Development utilities
-ipython>=8.14.0
+# OpenAI SDK (annotation generator script only)
+openai>=1.40.0
+
 ipdb>=0.13.13

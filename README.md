@@ -4,11 +4,11 @@ https://github.com/mixelpixx/KiCAD-MCP-Server/discussions/73
 
 # KiCAD MCP Server
 
-A Model Context Protocol (MCP) server that enables AI assistants like Claude to interact with KiCAD for PCB design automation. Built on the MCP 2025-06-18 specification, this server provides comprehensive tool schemas and real-time project state access for intelligent PCB design workflows.
+A Model Context Protocol (MCP) server that enables AI assistants like OpenAI Codex to interact with KiCAD for PCB design automation. Built on the MCP 2025-06-18 specification, this server provides comprehensive tool schemas and real-time project state access for intelligent PCB design workflows.
 
 ## Overview
 
-The [Model Context Protocol](https://modelcontextprotocol.io/) is an open standard from Anthropic that allows AI assistants to securely connect to external tools and data sources. This implementation provides a standardized bridge between AI assistants and KiCAD, enabling natural language control of PCB design operations.
+The [Model Context Protocol](https://modelcontextprotocol.io/) is an open standard that allows AI assistants to securely connect to external tools and data sources. This implementation provides a standardized bridge between OpenAI-powered MCP clients and KiCAD, enabling natural language control of PCB design operations.
 
 **Key Capabilities:**
 
@@ -25,7 +25,7 @@ The [Model Context Protocol](https://modelcontextprotocol.io/) is an open standa
 - Real-time KiCAD UI integration via IPC API (experimental)
 - Comprehensive error handling and logging
 
-## Try out Arduino MCP - now you can get Claude to help in the IDE, real time!:
+## Try out Arduino MCP - now you can get OpenAI Codex to help in the IDE, real time!:
 
 https://github.com/mixelpixx/arduino-ide
 
@@ -55,7 +55,7 @@ cable adapters) is now supported:
 
 ### Developer Mode
 
-Set `KICAD_MCP_DEV=1` in your Claude Desktop MCP environment to automatically save
+Set `KICAD_MCP_DEV=1` in your Codex MCP server environment to automatically save
 the MCP session log into the project's `logs/` folder on every `export_gerber` and
 `snapshot_project` call. Useful for debugging and for attaching to GitHub issues.
 
@@ -193,9 +193,9 @@ We've implemented an intelligent tool router to keep AI context efficient while 
   - `search_tools` - Find tools by keyword
   - `execute_tool` - Run any tool with parameters
 
-**Why this matters:** By organizing tools into discoverable categories, Claude can intelligently find and use the right tool for your task without loading all 122 tool schemas into every conversation. This reduces context consumption while maintaining full access to all functionality.
+**Why this matters:** By organizing tools into discoverable categories, OpenAI Codex can intelligently find and use the right tool for your task without loading all 122 tool schemas into every conversation. This reduces context consumption while maintaining full access to all functionality.
 
-**Usage is seamless:** Just ask naturally - "export gerber files" or "add mounting holes" - and Claude will discover and execute the appropriate tools automatically.
+**Usage is seamless:** Just ask naturally - "export gerber files" or "add mounting holes" - and Codex will discover and execute the appropriate tools automatically.
 
 ### NEEDS TESTING - REPORT ISSUES
 
@@ -255,7 +255,7 @@ Access project state without executing tools:
 
 ## Available Tools
 
-The server provides **122 tools** organized into 16 functional categories. With the router pattern, tools are automatically discovered as needed -- just ask Claude what you want to accomplish.
+The server provides **122 tools** organized into 16 functional categories. With the router pattern, tools are automatically discovered as needed -- just ask Codex what you want to accomplish.
 
 For the complete tool reference with access types (direct/routed/additional), see [Tool Inventory](docs/TOOL_INVENTORY.md).
 
@@ -455,8 +455,7 @@ See [Freerouting Guide](docs/FREEROUTING_GUIDE.md) for setup and usage.
 **MCP Client**
 Choose one:
 
-- [Claude Desktop](https://claude.ai/download) - Official Anthropic desktop app
-- [Claude Code](https://docs.claude.com/claude-code) - Official CLI tool
+- [OpenAI Codex CLI](https://developers.openai.com/codex) - Official OpenAI CLI with MCP support
 - [Cline](https://github.com/cline/cline) - VSCode extension
 - [OpenCode](https://opencode.ai/) - Terminal-based AI coding agent with MCP support
 
@@ -547,7 +546,7 @@ npm run build
 
 #### Automated Setup
 
-To simplify configuration with Claude Desktop, this repository provides a macOS setup script:
+To simplify configuration with OpenAI Codex CLI, this repository provides a macOS setup script:
 
 ```bash
 ./setup-macos.sh
@@ -562,8 +561,8 @@ This script does **not replace the manual setup above** — it assumes dependenc
 
 - detection of your environment (Node.js, KiCad Python, `pcbnew`)
 - resolving the correct macOS `PYTHONPATH`
-- generating the correct Claude Desktop MCP configuration
-- safely merging the configuration into your existing Claude config
+- generating the correct Codex CLI MCP configuration
+- safely merging the configuration into your existing `~/.codex/config.toml`
 - optionally writing the configuration with backup support
 
 ##### Basic Usage
@@ -586,7 +585,7 @@ This script does **not replace the manual setup above** — it assumes dependenc
 ./setup-macos.sh --apply
 ```
 
-After applying, restart Claude Desktop.
+After applying, restart Codex CLI.
 
 ##### Parameters
 
@@ -598,7 +597,7 @@ None. The script works out-of-the-box using sensible defaults.
 
 ##### `--name NAME`
 
-Specify the MCP server name in Claude Desktop.
+Specify the MCP server name in Codex CLI.
 
 Default:
 
@@ -618,20 +617,20 @@ Use this when:
 - testing forks or development versions
 - avoiding overwriting an existing setup
 
-##### `--claude-config PATH`
+##### `--codex-config PATH`
 
-Specify a custom Claude Desktop configuration file.
+Specify a custom Codex CLI configuration file.
 
 Default:
 
 ```text
-~/Library/Application Support/Claude/claude_desktop_config.json
+~/.codex/config.toml
 ```
 
 Example:
 
 ```bash
-./setup-macos.sh --dry-run --claude-config ~/tmp/claude_config.json
+./setup-macos.sh --dry-run --codex-config ~/tmp/config.toml
 ```
 
 Use this when:
@@ -652,13 +651,11 @@ Example:
 
 ##### After Setup
 
-1. Fully quit Claude Desktop
-2. Reopen Claude Desktop
-3. Open a new chat
-4. Click **+ → Connectors**
-5. Verify the server appears (e.g. `kicad` or your custom name)
+1. Restart Codex CLI (or start a new session)
+2. Verify the server is listed: `codex mcp list`
+3. Ask Codex to use the MCP server
 
-Test with prompt in Claude Desktop:
+Test with prompt in Codex:
 
 ```text
 Use the kicad MCP server to run check_kicad_ui.
@@ -666,7 +663,7 @@ Use the kicad MCP server to run check_kicad_ui.
 
 ##### Notes
 
-- The script only modifies the `mcpServers` section and leaves all other configuration untouched
+- The script only modifies the `mcp_servers.<name>` section and leaves all other configuration untouched
 - Existing configurations are automatically backed up before changes
 - macOS support relies on KiCad’s bundled Python; system Python will not work correctly
 - If KiCad is updated or moved, re-run the script to refresh paths
@@ -675,7 +672,30 @@ Use the kicad MCP server to run check_kicad_ui.
 
 ## Configuration
 
-### Claude Desktop
+### OpenAI Codex CLI
+
+Edit configuration file:
+
+- **All platforms:** `~/.codex/config.toml`
+
+See `config/codex-config.example.toml` for a complete example.
+
+**Configuration:**
+
+```toml
+[mcp_servers.kicad]
+command = "node"
+args = ["/path/to/KiCAD-MCP-Server/dist/index.js"]
+enabled = true
+startup_timeout_sec = 30
+tool_timeout_sec = 300
+
+[mcp_servers.kicad.env]
+PYTHONPATH = "/usr/lib/kicad/lib/python3/dist-packages"
+NODE_ENV = "production"
+```
+
+### Legacy: Claude Desktop
 
 Edit configuration file:
 
@@ -954,7 +974,7 @@ The easiest way to access JLCPCB's parts catalog:
 To download the database:
 
 ```
-Ask Claude: "Download the JLCPCB parts database"
+Ask Codex: "Download the JLCPCB parts database"
 ```
 
 This creates a local SQLite database at `data/jlcpcb_parts.db` (3-5 GB for full 2.5M+ part catalog).
@@ -1351,7 +1371,7 @@ This project is licensed under the MIT License. See [LICENSE](LICENSE) for detai
 
 ## Acknowledgments
 
-- Built on the [Model Context Protocol](https://modelcontextprotocol.io/) by Anthropic
+- Built on the [Model Context Protocol](https://modelcontextprotocol.io/)
 - Powered by [KiCAD](https://www.kicad.org/) open-source PCB design software
 - Uses [kicad-skip](https://github.com/kicad-skip) for schematic manipulation
 - [JLCSearch API](https://jlcsearch.tscircuit.com/) by [@tscircuit](https://github.com/tscircuit/jlcsearch) - Public JLCPCB parts API

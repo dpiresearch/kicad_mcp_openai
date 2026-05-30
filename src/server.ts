@@ -444,7 +444,7 @@ export class KiCADMcpServer {
       errors.forEach((err) => logger.error(err));
       logger.error("=".repeat(70));
 
-      // Also write to stderr for Claude Desktop to capture
+      // Also write to stderr for MCP clients to capture
       process.stderr.write("\n" + "=".repeat(70) + "\n");
       process.stderr.write("KiCAD MCP Server - Startup Validation Failed\n");
       process.stderr.write("=".repeat(70) + "\n");

@@ -28,7 +28,7 @@
     "model-context-protocol",
     "pcb-design",
     "ai",
-    "claude"
+    "openai"
   ],
   "author": "",
   "license": "MIT",

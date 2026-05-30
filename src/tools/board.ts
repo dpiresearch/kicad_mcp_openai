@@ -366,7 +366,7 @@ export function registerBoardTools(server: McpServer, callKicadScript: CommandFu
       "Render a 2D image of the PCB using kicad-cli. Returns PNG, JPG, or SVG.",
       "Use layers to filter — e.g. [\"F.Cu\",\"B.Cu\",\"Edge.Cuts\"] for copper + outline only.",
       "Use responseMode to choose delivery:",
-      '  "inline" (default) — PNG/JPG rendered as an image visible to Claude; SVG returned as text.',
+      '  "inline" (default) — PNG/JPG rendered as an image visible to the AI client; SVG returned as text.',
       '  "file" — image written next to the .kicad_pcb as <board>_2d_view.<ext>; filePath is returned.',
       "Use file mode for large boards to avoid MCP message-size limits.",
     ].join(" "),

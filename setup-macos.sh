@@ -4,25 +4,24 @@ set -euo pipefail
 MODE=""
 ASSUME_YES=0
 SERVER_NAME="kicad"
-CLAUDE_CONFIG_PATH=""
+CODEX_CONFIG_PATH=""
 
 SCRIPT_NAME="$(basename "$0")"
 
 usage() {
   cat <<EOF
 Usage:
-  $SCRIPT_NAME --verify [--name NAME] [--claude-config PATH]
-  $SCRIPT_NAME --dry-run [--name NAME] [--claude-config PATH]
-  $SCRIPT_NAME --apply [--name NAME] [--claude-config PATH] [--yes]
+  $SCRIPT_NAME --verify [--name NAME] [--codex-config PATH]
+  $SCRIPT_NAME --dry-run [--name NAME] [--codex-config PATH]
+  $SCRIPT_NAME --apply [--name NAME] [--codex-config PATH] [--yes]
 
 Options:
   --verify               Check prerequisites and print detected paths
-  --dry-run              Show config and merged Claude Desktop config without writing
-  --apply                Write/update Claude Desktop config
+  --dry-run              Show config and merged Codex config without writing
+  --apply                Write/update Codex CLI config (~/.codex/config.toml)
   --yes                  Do not prompt before writing (only with --apply)
   --name NAME            MCP server name (default: kicad)
-  --claude-config PATH   Path to Claude Desktop config file
-                         (default: ~/Library/Application Support/Claude/claude_desktop_config.json)
+  --codex-config PATH    Path to Codex config file (default: ~/.codex/config.toml)
 EOF
 }
 
@@ -77,9 +76,9 @@ while [[ $# -gt 0 ]]; do
       SERVER_NAME="$2"
       shift 2
       ;;
-    --claude-config)
-      [[ $# -ge 2 ]] || fail "--claude-config requires a value"
-      CLAUDE_CONFIG_PATH="$2"
+    --codex-config)
+      [[ $# -ge 2 ]] || fail "--codex-config requires a value"
+      CODEX_CONFIG_PATH="$2"
       shift 2
       ;;
     -h|--help)
@@ -95,17 +94,17 @@ done
 [[ -n "$MODE" ]] || { usage; exit 1; }
 [[ -n "$SERVER_NAME" ]] || fail "Server name must not be empty"
 
-if [[ -z "$CLAUDE_CONFIG_PATH" ]]; then
-  CLAUDE_CONFIG_PATH="$HOME/Library/Application Support/Claude/claude_desktop_config.json"
+if [[ -z "$CODEX_CONFIG_PATH" ]]; then
+  CODEX_CONFIG_PATH="$HOME/.codex/config.toml"
 fi
 
-case "$CLAUDE_CONFIG_PATH" in
+case "$CODEX_CONFIG_PATH" in
   "~/"*)
-    CLAUDE_CONFIG_PATH="$HOME/${CLAUDE_CONFIG_PATH#~/}"
+    CODEX_CONFIG_PATH="$HOME/${CODEX_CONFIG_PATH#~/}"
     ;;
 esac
 
-CLAUDE_CONFIG_DIR="$(dirname "$CLAUDE_CONFIG_PATH")"
+CODEX_CONFIG_DIR="$(dirname "$CODEX_CONFIG_PATH")"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 if [[ -f "$SCRIPT_DIR/package.json" ]]; then
@@ -158,18 +157,22 @@ if [[ "$PCBNEW_OK" != "true" ]]; then
   fail "KiCad Python could not import pcbnew. Details: $PCBNEW_ERROR"
 fi
 
-CONFIG_FRAGMENT_JSON="$(python3 - "$NODE_PATH" "$DIST_JS" "$KICAD_PYTHON" "$PYTHONPATH_VALUE" <<'PY'
-import json, sys
-fragment = {
-    "command": sys.argv[1],
-    "args": [sys.argv[2]],
-    "env": {
-        "KICAD_PYTHON": sys.argv[3],
-        "PYTHONPATH": sys.argv[4],
-        "LOG_LEVEL": "info"
-    }
-}
-print(json.dumps(fragment, indent=2))
+CONFIG_FRAGMENT_TOML="$(python3 - "$NODE_PATH" "$DIST_JS" "$KICAD_PYTHON" "$PYTHONPATH_VALUE" "$SERVER_NAME" <<'PY'
+import sys
+
+node_path, dist_js, kicad_python, pythonpath, server_name = sys.argv[1:6]
+print(f"""[mcp_servers.{server_name}]
+command = "{node_path}"
+args = ["{dist_js}"]
+enabled = true
+startup_timeout_sec = 30
+tool_timeout_sec = 300
+
+[mcp_servers.{server_name}.env]
+KICAD_PYTHON = "{kicad_python}"
+PYTHONPATH = "{pythonpath}"
+LOG_LEVEL = "info"
+""")
 PY
 )"
 
@@ -187,59 +190,46 @@ show_detected() {
   echo "  Python executable: $PYTHON_EXE"
   echo "  Python version:    $PYTHON_VERSION"
   echo "  PYTHONPATH:        $PYTHONPATH_VALUE"
-  echo "  Claude config:     $CLAUDE_CONFIG_PATH"
+  echo "  Codex config:      $CODEX_CONFIG_PATH"
 }
 
 merge_config() {
-  python3 - "$CLAUDE_CONFIG_PATH" "$CONFIG_FRAGMENT_JSON" "$SERVER_NAME" <<'PY'
-import json, os, sys
+  python3 - "$CODEX_CONFIG_PATH" "$CONFIG_FRAGMENT_TOML" "$SERVER_NAME" <<'PY'
+import json
+import re
+import sys
+from pathlib import Path
 
-config_path = sys.argv[1]
-fragment = json.loads(sys.argv[2])
+config_path = Path(sys.argv[1])
+fragment = sys.argv[2].rstrip() + "\n"
 server_name = sys.argv[3]
+section_prefix = f"[mcp_servers.{server_name}]"
 
-existing = {}
+existing = ""
 status = {
     "config_exists": False,
-    "config_valid": True,
-    "had_mcpServers": False,
     "had_entry": False,
 }
 
-if os.path.exists(config_path):
+if config_path.exists():
     status["config_exists"] = True
-    try:
-        with open(config_path, "r", encoding="utf-8") as f:
-            text = f.read().strip()
-            existing = json.loads(text) if text else {}
-    except Exception:
-        print(json.dumps({"error": "Existing Claude config is not valid JSON", "status": status}))
-        sys.exit(2)
+    existing = config_path.read_text(encoding="utf-8")
+    if section_prefix in existing:
+        status["had_entry"] = True
+        pattern = re.compile(
+            rf"(?ms)^\[mcp_servers\.{re.escape(server_name)}(?:\.[^\]]+)?\][^\[]*"
+        )
+        existing = pattern.sub("", existing).rstrip() + "\n"
 
-if not isinstance(existing, dict):
-    print(json.dumps({"error": "Existing Claude config root is not a JSON object", "status": status}))
-    sys.exit(2)
-
-if "mcpServers" in existing:
-    status["had_mcpServers"] = True
-    if not isinstance(existing["mcpServers"], dict):
-        print(json.dumps({"error": "'mcpServers' exists but is not an object", "status": status}))
-        sys.exit(2)
-else:
-    existing["mcpServers"] = {}
-
-if server_name in existing["mcpServers"]:
-    status["had_entry"] = True
-
-existing["mcpServers"][server_name] = fragment
-print(json.dumps({"status": status, "merged": existing}, indent=2))
+merged = (existing.rstrip() + "\n\n" if existing.strip() else "") + fragment
+print(json.dumps({"status": status, "merged": merged}))
 PY
 }
 
 if [[ "$MODE" == "verify" ]]; then
   show_detected
-  section "Proposed Claude Desktop entry ('$SERVER_NAME')"
-  echo "$CONFIG_FRAGMENT_JSON"
+  section "Proposed Codex MCP entry ('$SERVER_NAME')"
+  echo "$CONFIG_FRAGMENT_TOML"
   exit 0
 fi
 
@@ -248,38 +238,38 @@ MERGE_RESULT="$(merge_config 2>&1)" || {
   exit 1
 }
 
-MERGED_JSON="$(python3 -c 'import json,sys; print(json.dumps(json.loads(sys.stdin.read())["merged"], indent=2))' <<<"$MERGE_RESULT")"
+MERGED_TOML="$(python3 -c 'import json,sys; print(json.loads(sys.stdin.read())["merged"], end="")' <<<"$MERGE_RESULT")"
 CONFIG_EXISTS="$(python3 -c 'import json,sys; print("true" if json.loads(sys.stdin.read())["status"]["config_exists"] else "false")' <<<"$MERGE_RESULT")"
 HAD_ENTRY="$(python3 -c 'import json,sys; print("true" if json.loads(sys.stdin.read())["status"]["had_entry"] else "false")' <<<"$MERGE_RESULT")"
 
 show_detected
 
 section "Proposed MCP entry ('$SERVER_NAME')"
-echo "$CONFIG_FRAGMENT_JSON"
+echo "$CONFIG_FRAGMENT_TOML"
 
-section "Claude Desktop config"
+section "Codex CLI config"
 if [[ "$CONFIG_EXISTS" == "true" ]]; then
   if [[ "$HAD_ENTRY" == "true" ]]; then
-    warn "Existing config already has mcpServers.$SERVER_NAME — it will be replaced."
+    warn "Existing config already has mcp_servers.$SERVER_NAME — it will be replaced."
   else
-    info "Existing config will be preserved; mcpServers.$SERVER_NAME will be added."
+    info "Existing config will be preserved; mcp_servers.$SERVER_NAME will be added."
   fi
 else
   info "Config does not exist yet. A new file will be created."
 fi
 echo
 echo "${DIM}Merged config preview:${RESET}"
-echo "$MERGED_JSON"
+echo "$MERGED_TOML"
 
 if [[ "$MODE" == "dry-run" ]]; then
   exit 0
 fi
 
-mkdir -p "$CLAUDE_CONFIG_DIR"
+mkdir -p "$CODEX_CONFIG_DIR"
 
 if [[ $ASSUME_YES -ne 1 ]]; then
   echo
-  read -r -p "Write this configuration to $CLAUDE_CONFIG_PATH ? [y/N] " REPLY
+  read -r -p "Write this configuration to $CODEX_CONFIG_PATH ? [y/N] " REPLY
   case "$REPLY" in
     y|Y|yes|YES) ;;
     *)
@@ -289,29 +279,23 @@ if [[ $ASSUME_YES -ne 1 ]]; then
   esac
 fi
 
-ORIG_MODE=""
-if [[ -f "$CLAUDE_CONFIG_PATH" ]]; then
-  ORIG_MODE="$(stat -f '%Lp' "$CLAUDE_CONFIG_PATH")"
-  BACKUP_PATH="${CLAUDE_CONFIG_PATH}.bak.$(date +%Y%m%d-%H%M%S)"
-  cp "$CLAUDE_CONFIG_PATH" "$BACKUP_PATH"
+if [[ -f "$CODEX_CONFIG_PATH" ]]; then
+  BACKUP_PATH="${CODEX_CONFIG_PATH}.bak.$(date +%Y%m%d-%H%M%S)"
+  cp "$CODEX_CONFIG_PATH" "$BACKUP_PATH"
   info "Backup written to ${DIM}$BACKUP_PATH${RESET}"
 fi
 
-TMP_PATH="${CLAUDE_CONFIG_PATH}.tmp.$$"
-(umask 077 && printf '%s\n' "$MERGED_JSON" > "$TMP_PATH")
-if [[ -n "$ORIG_MODE" ]]; then
-  chmod "$ORIG_MODE" "$TMP_PATH"
-fi
-mv "$TMP_PATH" "$CLAUDE_CONFIG_PATH"
+TMP_PATH="${CODEX_CONFIG_PATH}.tmp.$$"
+(umask 077 && printf '%s\n' "$MERGED_TOML" > "$TMP_PATH")
+mv "$TMP_PATH" "$CODEX_CONFIG_PATH"
 
 section "Done"
-info "Claude Desktop configuration updated successfully."
+info "Codex CLI configuration updated successfully."
 
 echo
 echo "${BOLD}Next steps:${RESET}"
-echo "  1. Fully quit Claude Desktop"
-echo "  2. Reopen Claude Desktop"
-echo "  3. In a new chat, check: + → Connectors"
-echo "  4. Verify with:"
-echo "     Use the ${BOLD}$SERVER_NAME${RESET} MCP server to run ${BOLD}check_kicad_ui${RESET}."
+echo "  1. Restart Codex CLI (or start a new session)"
+echo "  2. Verify the MCP server is listed:"
+echo "     codex mcp list"
+echo "  3. In Codex, ask it to use the ${BOLD}$SERVER_NAME${RESET} MCP server to run ${BOLD}check_kicad_ui${RESET}."
 echo

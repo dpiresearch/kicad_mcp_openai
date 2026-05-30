@@ -1,7 +1,7 @@
 /**
  * Footprint prompts for KiCAD MCP server
  *
- * Guides Claude in creating and editing KiCAD footprints (.kicad_mod)
+ * Guides AI clients in creating and editing KiCAD footprints (.kicad_mod)
  * using the create_footprint, edit_footprint_pad, and list_footprint_libraries tools.
  */
 

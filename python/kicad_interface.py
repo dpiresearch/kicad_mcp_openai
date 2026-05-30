@@ -846,7 +846,7 @@ class KiCADInterface:
                         self._last_auto_save_status = None
                     elif command in self._BOARD_MUTATING_COMMANDS:
                         # Auto-save after every board mutation via SWIG.
-                        # Prevents data loss if Claude hits context limit before
+                        # Prevents data loss if the AI client hits context limit before
                         # an explicit save_project call.  When auto-save refuses
                         # because the on-disk file changed externally, surface
                         # a warning to the caller so they don't believe their
@@ -1355,7 +1355,7 @@ class KiCADInterface:
         """Place a component on the PCB, with project-local fp-lib-table support.
         If boardPath is given and differs from the currently loaded board, the
         board is reloaded from boardPath before placing — prevents silent failures
-        when Claude provides a boardPath that was not yet loaded.
+        when the MCP client provides a boardPath that was not yet loaded.
         """
         from pathlib import Path
 
@@ -5337,18 +5337,11 @@ class KiCADInterface:
                 logger.info(f"Prompt saved: {prompt_file}")
 
             # Copy current MCP session log into logs/ before snapshotting
-            import platform
+            from utils.mcp_client_logs import resolve_mcp_client_log
 
-            system = platform.system()
-            if system == "Windows":
-                mcp_log_dir = os.path.join(os.environ.get("APPDATA", ""), "Claude", "logs")
-            elif system == "Darwin":
-                mcp_log_dir = os.path.expanduser("~/Library/Logs/Claude")
-            else:
-                mcp_log_dir = os.path.expanduser("~/.config/Claude/logs")
-            mcp_log_src = os.path.join(mcp_log_dir, "mcp-server-kicad.log")
+            mcp_log_src = resolve_mcp_client_log()
             mcp_log_dest = None
-            if os.path.exists(mcp_log_src):
+            if mcp_log_src:
                 with open(mcp_log_src, "r", encoding="utf-8", errors="replace") as f:
                     all_lines = f.readlines()
                 session_start = 0
@@ -6065,7 +6058,7 @@ print("ok")
         shape = params.get("shape", "rectangle")
         if shape in ("rounded_rectangle", "rectangle"):
             # IPC path only supports straight segments from a points list,
-            # but Claude sends rectangle/rounded_rectangle as shape+width+height.
+            # but MCP clients send rectangle/rounded_rectangle as shape+width+height.
             # Fall back to the SWIG path which correctly handles both shapes.
             logger.info(f"_ipc_add_board_outline: delegating {shape} to SWIG path")
             return self.board_commands.add_board_outline(params)
@@ -6078,7 +6071,7 @@ print("ok")
 
             board = self.ipc_board_api._get_board()
 
-            # Unwrap nested params (Claude sends {"shape":..., "params":{...}})
+            # Unwrap nested params (some MCP clients send {"shape":..., "params":{...}})
             inner = params.get("params", params)
             points = inner.get("points", params.get("points", []))
             width = inner.get("width", params.get("width", 0.1))

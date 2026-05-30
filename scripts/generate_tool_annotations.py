@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
 """
-generate_tool_annotations.py — Annotate KiCad IPC API proto messages with Claude
+generate_tool_annotations.py — Annotate KiCad IPC API proto messages with OpenAI
 
-Reads KiCad's protobuf API definitions and uses the Claude API to generate rich,
+Reads KiCad's protobuf API definitions and uses the OpenAI API to generate rich,
 user-facing descriptions suitable for MCP tool metadata. The output JSON file can
 be loaded by an MCP server to annotate auto-generated tools with descriptions that
 go beyond what's in the proto files (e.g., unit conventions, commit ownership
 semantics, blocking/interactive behavior).
 
-Because the proto content is large and static, it is sent once as a cached prompt
-block; only the lightweight annotation-request portion is billed at full rate.
-Re-running the script against the same proto revision is therefore very cheap.
+The proto context is included in the prompt so repeated runs against the same
+proto revision stay consistent.
 
 Usage
 -----
@@ -42,12 +41,12 @@ Preview what would be annotated without calling the API::
 
 Environment variables
 ---------------------
-ANTHROPIC_API_KEY
-    Required. Your Anthropic API key.
+OPENAI_API_KEY
+    Required. Your OpenAI API key.
 
 Dependencies
 ------------
-    anthropic>=0.40.0
+    openai>=1.40.0
     requests>=2.28.0   (only needed with --fetch-from-gitlab)
 """
 
@@ -84,7 +83,7 @@ PROTO_RELATIVE_PATHS: list[str] = [
     "api/proto/common/types/enums.proto",
 ]
 
-DEFAULT_MODEL = "claude-opus-4-7"
+DEFAULT_MODEL = "gpt-4o"
 DEFAULT_OUTPUT = "tool_annotations.json"
 
 # ---------------------------------------------------------------------------
@@ -348,7 +347,7 @@ def parse_all_protos(files: dict[str, str]) -> dict[str, ProtoMessage]:
 
 
 # ---------------------------------------------------------------------------
-# Annotation generation via Claude
+# Annotation generation via OpenAI
 # ---------------------------------------------------------------------------
 
 _SYSTEM_PROMPT = """\
@@ -444,41 +443,38 @@ def _build_full_prompt(proto_context: str, target_names: list[str]) -> str:
 
 
 def _parse_response(raw: str) -> dict:
-    """Parse a Claude text response to a JSON dict, stripping markdown fences."""
+    """Parse an OpenAI text response to a JSON dict, stripping markdown fences."""
     raw = raw.strip()
     if raw.startswith("```"):
         raw = re.sub(r"^```[a-z]*\n?", "", raw).rstrip("`").strip()
     try:
         return json.loads(raw)
     except json.JSONDecodeError as exc:
-        print(f"ERROR: Claude returned invalid JSON: {exc}", file=sys.stderr)
+        print(f"ERROR: OpenAI returned invalid JSON: {exc}", file=sys.stderr)
         print("--- raw response (first 2000 chars) ---", file=sys.stderr)
         print(raw[:2000], file=sys.stderr)
         sys.exit(1)
 
 
-def call_claude_sdk(
+def call_openai_sdk(
     messages: dict[str, ProtoMessage],
     model: str,
     existing: dict,
     resume: bool,
 ) -> dict:
     """
-    Annotate messages via the Anthropic Python SDK (requires ANTHROPIC_API_KEY).
-
-    Uses prompt caching on the static proto context block so repeated runs against
-    the same proto definitions only bill the small annotation-request portion.
+    Annotate messages via the OpenAI Python SDK (requires OPENAI_API_KEY).
     """
     try:
-        import anthropic
+        from openai import OpenAI
     except ImportError:
-        sys.exit("anthropic SDK is required.  Install with: pip install anthropic")
+        sys.exit("openai SDK is required.  Install with: pip install openai")
 
-    api_key = os.environ.get("ANTHROPIC_API_KEY")
+    api_key = os.environ.get("OPENAI_API_KEY")
     if not api_key:
-        sys.exit("ANTHROPIC_API_KEY is not set. Use --use-cli to call Claude Code instead.")
+        sys.exit("OPENAI_API_KEY is not set.")
 
-    client = anthropic.Anthropic(api_key=api_key)
+    client = OpenAI(api_key=api_key)
 
     _, todo = _filter_command_messages(messages, existing, resume)
     if not todo:
@@ -489,124 +485,29 @@ def call_claude_sdk(
     target_names = sorted(todo.keys())
     print(f"  Sending {len(target_names)} messages to {model} via SDK ...")
 
-    response = client.messages.create(
+    user_content = _build_full_prompt(proto_context, target_names)
+    response = client.chat.completions.create(
         model=model,
         max_tokens=8192,
-        system=_SYSTEM_PROMPT,
         messages=[
-            {
-                "role": "user",
-                "content": [
-                    # Cache the large, static proto context block
-                    {
-                        "type": "text",
-                        "text": "## KiCad IPC API — proto definitions\n\n" + proto_context,
-                        "cache_control": {"type": "ephemeral"},
-                    },
-                    {
-                        "type": "text",
-                        "text": (
-                            "## Annotation request\n\n"
-                            "Generate MCP annotations for the following request messages:\n"
-                            + "\n".join(f"- {n}" for n in target_names)
-                            + "\n\nReturn only the JSON object described in your instructions."
-                        ),
-                    },
-                ],
-            }
+            {"role": "system", "content": _SYSTEM_PROMPT},
+            {"role": "user", "content": user_content},
         ],
     )
 
     usage = response.usage
-    if hasattr(usage, "cache_creation_input_tokens"):
+    if usage is not None:
         print(
-            f"  Tokens — input: {usage.input_tokens}, "
-            f"cache_write: {usage.cache_creation_input_tokens}, "
-            f"cache_read: {usage.cache_read_input_tokens}, "
-            f"output: {usage.output_tokens}"
+            f"  Tokens — input: {usage.prompt_tokens}, "
+            f"output: {usage.completion_tokens}, "
+            f"total: {usage.total_tokens}"
         )
 
-    new_annotations = _parse_response(response.content[0].text)
+    content = response.choices[0].message.content or ""
+    new_annotations = _parse_response(content)
     result = dict(existing)
     result.setdefault("annotations", {}).update(new_annotations)
     return result
-
-
-def call_claude_cli(
-    messages: dict[str, ProtoMessage],
-    model: str,
-    existing: dict,
-    resume: bool,
-) -> dict:
-    """
-    Annotate messages by shelling out to the ``claude`` CLI (Claude Code).
-
-    Works with a Claude.ai monthly subscription — no API key required.
-    The ``claude`` binary must be on PATH (install Claude Code from claude.ai/code).
-
-    Note: prompt caching is not available via the CLI; the full context is sent
-    each time. Use --resume between interrupted runs to avoid redundant work.
-    """
-    import shutil
-    import subprocess
-
-    claude_bin = shutil.which("claude")
-    if not claude_bin:
-        sys.exit(
-            "claude CLI not found on PATH.\n"
-            "Install Claude Code from https://claude.ai/code, then re-run."
-        )
-
-    _, todo = _filter_command_messages(messages, existing, resume)
-    if not todo:
-        print("  Nothing to annotate.")
-        return existing
-
-    proto_context = _build_proto_context(messages)
-    target_names = sorted(todo.keys())
-    print(f"  Sending {len(target_names)} messages to claude CLI ...")
-
-    prompt = _build_full_prompt(proto_context, target_names)
-
-    cmd = [claude_bin, "--output-format", "text", "-p", prompt]
-    if model:
-        cmd += ["--model", model]
-
-    try:
-        proc = subprocess.run(
-            cmd,
-            capture_output=True,
-            text=True,
-            timeout=300,
-        )
-    except subprocess.TimeoutExpired:
-        sys.exit("ERROR: claude CLI timed out after 5 minutes.")
-    except FileNotFoundError:
-        sys.exit(f"ERROR: could not execute {claude_bin}")
-
-    if proc.returncode != 0:
-        print(f"ERROR: claude CLI exited {proc.returncode}", file=sys.stderr)
-        if proc.stderr:
-            print(proc.stderr[:1000], file=sys.stderr)
-        sys.exit(1)
-
-    new_annotations = _parse_response(proc.stdout)
-    result = dict(existing)
-    result.setdefault("annotations", {}).update(new_annotations)
-    return result
-
-
-def call_claude(
-    messages: dict[str, ProtoMessage],
-    model: str,
-    existing: dict,
-    resume: bool,
-    use_cli: bool,
-) -> dict:
-    """Dispatch to the appropriate Claude backend."""
-    if use_cli:
-        return call_claude_cli(messages, model, existing, resume)
-    return call_claude_sdk(messages, model, existing, resume)
 
 
 # ---------------------------------------------------------------------------
@@ -692,7 +593,7 @@ def build_parser() -> argparse.ArgumentParser:
         "--model",
         metavar="MODEL",
         default=DEFAULT_MODEL,
-        help=f"Claude model to use for annotation. Default: {DEFAULT_MODEL}.",
+        help=f"OpenAI model to use for annotation. Default: {DEFAULT_MODEL}.",
     )
     p.add_argument(
         "--resume",
@@ -703,23 +604,6 @@ def build_parser() -> argparse.ArgumentParser:
         "--dry-run",
         action="store_true",
         help="Parse proto files and list what would be annotated; do not call the API.",
-    )
-
-    backend = p.add_mutually_exclusive_group()
-    backend.add_argument(
-        "--use-cli",
-        action="store_true",
-        help=(
-            "Use the 'claude' CLI (Claude Code) instead of the SDK. "
-            "Works with a Claude.ai monthly plan — no API key needed. "
-            "Requires the 'claude' binary on PATH."
-        ),
-    )
-    backend.add_argument(
-        "--use-sdk",
-        action="store_true",
-        default=True,
-        help="Use the Anthropic Python SDK (requires ANTHROPIC_API_KEY). This is the default.",
     )
 
     return p
@@ -760,12 +644,11 @@ def main(argv: Optional[list[str]] = None) -> int:
 
     # ── annotate ─────────────────────────────────────────────────────────────
     existing = load_existing(args.output) if args.resume else {"annotations": {}}
-    result = call_claude(
+    result = call_openai_sdk(
         messages,
         args.model,
         existing,
         resume=args.resume,
-        use_cli=args.use_cli,
     )
 
     # ── write ────────────────────────────────────────────────────────────────
