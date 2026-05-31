@@ -14,6 +14,7 @@ GPT-5.5's multimodality allows it to intepret images and autonomously make corre
 
 Here is the one minute video submission for the Modal OpenAI Hackathon (https://drive.google.com/file/d/1XYgZbd9JnJJYYNHjitY0kJ2madxA6tnX/view?usp=sharing)
 
+A more exhaustive blog detailing the development steps can be found here: https://github.com/dpiresearch/kicad_mcp_openai/blob/openai_modal_ltm/docs/OPENAI_MODAL_LTM_KICAD_BLOG.md
 
 [🇺🇸 **English** (EN)](#) &nbsp;•&nbsp; [🇩🇪 **Deutsch** (DE)](README.de.md) &nbsp;•&nbsp; [🇨🇳 **中文** (ZH)](README.zh.md)
 
