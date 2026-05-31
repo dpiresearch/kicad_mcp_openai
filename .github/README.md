@@ -4,7 +4,16 @@
 
 <img src="../resources/images/KiCAD-MCP-Server_only_css.svg" alt="KiCAD-MCP-Server Logo" height="240" />
 
-# KiCAD MCP Server
+# KiCAD MCP Server using OpenAI
+
+This is a derivation of the orignal project here https://github.com/mixelpixx/KiCAD-MCP-Server
+
+Using this project in conjunction with OpenAI's Codex, I successfully performed prompt to schematic and PCB layout
+including traces and rules checking.  The key was to provide a tool helped the app vidualize the schematic and pcb design.
+GPT-5.5's multimodality allows it to intepret images and autonomously make correcions and modifications.
+
+Here is the one minute video submission for the Modal OpenAI Hackathon (https://drive.google.com/file/d/1XYgZbd9JnJJYYNHjitY0kJ2madxA6tnX/view?usp=sharing)
+
 
 [🇺🇸 **English** (EN)](#) &nbsp;•&nbsp; [🇩🇪 **Deutsch** (DE)](README.de.md) &nbsp;•&nbsp; [🇨🇳 **中文** (ZH)](README.zh.md)
 
