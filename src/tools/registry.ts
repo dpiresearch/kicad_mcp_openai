@@ -128,6 +128,18 @@ export const toolCategories: ToolCategory[] = [
     description: "Freerouting autorouter: automatic PCB routing via Specctra DSN/SES",
     tools: ["autoroute", "export_dsn", "import_ses", "check_freerouting"],
   },
+  {
+    name: "agents",
+    description:
+      "Modal/OpenAI parallel design agents for planning, review, and validation before local KiCad edits",
+    tools: ["run_parallel_agents", "get_parallel_agent_status"],
+  },
+  {
+    name: "viewer",
+    description:
+      "Visual schematic and PCB snapshots for autonomous design review and correction feedback",
+    tools: ["capture_design_snapshot"],
+  },
 ];
 
 /**
@@ -167,6 +179,13 @@ export const directToolNames = [
   // UI management
   "get_backend_state",
   "check_kicad_ui",
+
+  // Agent orchestration
+  "run_parallel_agents",
+  "get_parallel_agent_status",
+
+  // Visual review
+  "capture_design_snapshot",
 ];
 
 // Build lookup maps at module load time

@@ -1,0 +1,9 @@
+(fp_lib_table
+  (lib
+    (name "footprint_custom")
+    (type "KiCad")
+    (uri "/Users/dpang/dev/1KCubeSat/1KCubeSat_Hardware/kicad_libraries/footprint_custom.pretty")
+    (options "")
+    (descr "1KCubeSat custom footprints")
+  )
+)

@@ -1,0 +1,170 @@
+# EPS PCB Integration Log
+
+Date: 2026-05-30
+
+Target project:
+- `/Users/dpang/dev/KiCAD-MCP-Server/joan_sat/eps_board/Untitled.kicad_sch`
+- `/Users/dpang/dev/KiCAD-MCP-Server/joan_sat/eps_board/Untitled.kicad_pcb`
+
+Source PC/104 board:
+- `/Users/dpang/dev/1KCubeSat/1KCubeSat_Joan/eps_board/PC104/PC104_burns/PC104.kicad_pcb`
+
+## Running Notes
+
+- Started from the copied EPS project in `joan_sat/eps_board`.
+- Confirmed the target PCB was effectively empty before PC/104 integration.
+- Inspected the PC/104 source board and identified:
+  - board outline on `Edge.Cuts`
+  - four `MountingHole:MountingHole_3mm` footprints
+  - two `Digitkey_1:SAMTEC_TSW-126-08-G-D` 52-pin header footprints
+  - duplicate `J1` references on the two PC/104 header footprints, which need unique names before mixing with the EPS schematic.
+- Captured baseline target PCB snapshot:
+  - `/Users/dpang/dev/KiCAD-MCP-Server/joan_sat/eps_board/snapshots/visual-feedback/2026-05-30_01_empty_target_pcb.svg`
+  - `/Users/dpang/dev/KiCAD-MCP-Server/joan_sat/eps_board/snapshots/visual-feedback/2026-05-30_01_empty_target_pcb.svg.png`
+- Replaced the empty target PCB with the PC/104 source geometry and renamed imported references:
+  - `MH_PC104_1` through `MH_PC104_4`
+  - `J_PC104_A`
+  - `J_PC104_B`
+- Captured PC/104 import snapshot:
+  - `/Users/dpang/dev/KiCAD-MCP-Server/joan_sat/eps_board/snapshots/visual-feedback/2026-05-30_02_pc104_import.svg`
+  - `/Users/dpang/dev/KiCAD-MCP-Server/joan_sat/eps_board/snapshots/visual-feedback/2026-05-30_02_pc104_import.svg.png`
+- Visual check: outline, four mounting holes, and the two 52-pin PC/104 headers are present.
+- Ran schematic-to-PCB sync with the KiCad MCP backend:
+  - 45 schematic footprints added
+  - 57 nets added
+  - 32 pads assigned by the backend
+  - several schematic footprints skipped because the referenced footprint libraries or footprint names are missing from this KiCad install.
+- Captured post-sync snapshot before placement:
+  - `/Users/dpang/dev/KiCAD-MCP-Server/joan_sat/eps_board/snapshots/visual-feedback/2026-05-30_03_after_schematic_sync.svg`
+- Placed the added EPS footprints onto the PC/104 board area:
+  - PC/104 headers and mounting holes retained from the source board.
+  - USB-C connector placed near the left edge.
+  - External/power components grouped near USB-C.
+  - Header/test-point footprints distributed along the right and lower board areas.
+- Added missing USB-C CC pull-down footprints that schematic sync skipped:
+  - `R22`, 5.1 k, `Resistor_SMD:R_0402_1005Metric`
+  - `R23`, 5.1 k, `Resistor_SMD:R_0402_1005Metric`
+- Assigned USB-C connector nets on the PCB:
+  - `A4`, `A9`, `B4`, `B9` to `VBUS`
+  - `A1`, `A12`, `B1`, `B12`, and shield pads to `GND`
+  - `A5` to `Net-(J1-CC1)`
+  - `B5` to `Net-(J1-CC2)`
+- Captured placement snapshots:
+  - `/Users/dpang/dev/KiCAD-MCP-Server/joan_sat/eps_board/snapshots/visual-feedback/2026-05-30_04_placed_pc104_eps.svg`
+  - `/Users/dpang/dev/KiCAD-MCP-Server/joan_sat/eps_board/snapshots/visual-feedback/2026-05-30_04_placed_pc104_eps.svg.png`
+- Initial DRC after placement:
+  - `/Users/dpang/dev/KiCAD-MCP-Server/joan_sat/eps_board/snapshots/visual-feedback/2026-05-30_04_placed_pc104_eps_drc.rpt`
+  - Result: 60 DRC violations and 28 unconnected items.
+  - Main placement issues were USB-C/right-edge connector edge clearance and J9 crowding the lower-right PC/104 mounting hole.
+- Adjusted USB-C and right-edge connector placement for cleaner edge clearances:
+  - moved USB-C slightly inward while keeping it left-edge accessible
+  - moved `J4` through `J9` inward and staggered them away from the lower-right mounting hole
+- Tested local USB-C traces in snapshot `2026-05-30_05_usb_edge_clearance_routing`, but removed those traces after DRC found crossings/shorts. The clean checkpoint keeps the net assignments and footprint placement without the bad provisional traces.
+- Captured clean placement checkpoint:
+  - `/Users/dpang/dev/KiCAD-MCP-Server/joan_sat/eps_board/snapshots/visual-feedback/2026-05-30_06_clean_placement_no_tracks.svg`
+  - `/Users/dpang/dev/KiCAD-MCP-Server/joan_sat/eps_board/snapshots/visual-feedback/2026-05-30_06_clean_placement_no_tracks.svg.png`
+- Final DRC checkpoint for this pass:
+  - `/Users/dpang/dev/KiCAD-MCP-Server/joan_sat/eps_board/snapshots/visual-feedback/2026-05-30_06_clean_placement_no_tracks_drc.rpt`
+  - Result: 19 DRC violations and 28 unconnected items.
+  - Remaining DRC items are mostly source PC/104 header courtyard/silkscreen overlap, missing `Digitkey_1` footprint library warnings, silkscreen label clearances, and unrouted net ratsnest items.
+- First trace pass:
+  - Routed short local traces for USB-C CC pull-downs, `+3.3V` on `U4`, `GND` on `U84`, `GND` on `J4`, `VHEAT` between `U10`/`U11`, paired status test points, and `NTC` from `TH1` to `U10`.
+  - Rotated `R22` and `R23` 180 degrees so their CC pads face the USB-C connector and their GND pads face inward.
+  - Rerouted `NTC` around `TH2` after DRC flagged the first dogleg as too close.
+- Captured trace-pass snapshots:
+  - `/Users/dpang/dev/KiCAD-MCP-Server/joan_sat/eps_board/snapshots/visual-feedback/2026-05-30_07_first_trace_pass.svg`
+  - `/Users/dpang/dev/KiCAD-MCP-Server/joan_sat/eps_board/snapshots/visual-feedback/2026-05-30_07_first_trace_pass.svg.png`
+  - `/Users/dpang/dev/KiCAD-MCP-Server/joan_sat/eps_board/snapshots/visual-feedback/2026-05-30_08_trace_pass_rotated_cc.svg`
+  - `/Users/dpang/dev/KiCAD-MCP-Server/joan_sat/eps_board/snapshots/visual-feedback/2026-05-30_08_trace_pass_rotated_cc.svg.png`
+  - `/Users/dpang/dev/KiCAD-MCP-Server/joan_sat/eps_board/snapshots/visual-feedback/2026-05-30_09_trace_pass_ntc_fixed.svg`
+  - `/Users/dpang/dev/KiCAD-MCP-Server/joan_sat/eps_board/snapshots/visual-feedback/2026-05-30_09_trace_pass_ntc_fixed.svg.png`
+- Trace-pass DRC:
+  - `/Users/dpang/dev/KiCAD-MCP-Server/joan_sat/eps_board/snapshots/visual-feedback/2026-05-30_09_trace_pass_ntc_fixed_drc.rpt`
+  - Result: 19 DRC violations and 14 unconnected items.
+  - The trace pass did not add remaining short/clearance errors after the `NTC` fix; the 19 violations are the same class of mechanical/library/silkscreen issues noted above.
+- Added project-local footprint table:
+  - `/Users/dpang/dev/KiCAD-MCP-Server/joan_sat/eps_board/fp-lib-table`
+  - maps `footprint_custom` to `/Users/dpang/dev/1KCubeSat/1KCubeSat_Hardware/kicad_libraries/footprint_custom.pretty`
+- Reran schematic-to-PCB sync after adding `footprint_custom`:
+  - 15 additional footprints added
+  - 41 additional nets added
+  - 141 pads assigned by the backend
+  - `U16` was added using `footprint_custom:MSOP-16-1EP_3x4.039mm_P0.5mm_EP1.651x2.845mm_0.3mmThermalVias`
+  - Additional custom footprints added: `D11`, `U9`, `BT1`, `D1`, `U1`, `U15`, `D10`, `U2`, `BT3`, `D2`, `D3`, `D4`, `D5`, `D6`
+- Captured custom-footprint sync and placement snapshots:
+  - `/Users/dpang/dev/KiCAD-MCP-Server/joan_sat/eps_board/snapshots/visual-feedback/2026-05-30_10_after_custom_library_sync.svg`
+  - `/Users/dpang/dev/KiCAD-MCP-Server/joan_sat/eps_board/snapshots/visual-feedback/2026-05-30_11_custom_footprints_placed.svg`
+  - `/Users/dpang/dev/KiCAD-MCP-Server/joan_sat/eps_board/snapshots/visual-feedback/2026-05-30_11_custom_footprints_placed.svg.png`
+- Post-sync verification:
+  - `U16` is present in the PCB.
+  - PCB now has 68 footprints.
+  - No footprints are off-board.
+  - DRC after rough placement: 195 violations and 70 unconnected items.
+  - Visual note: the custom footprints are present but the rough placement is crowded, especially the battery holders near the PC/104 header and central circuitry. A dedicated placement pass is needed before continuing routing.
+- Proper placement pass:
+  - Rotated and placed `BT1`/`BT3` horizontally inside the PC/104 outline, leaving the PC/104 header field, mounting holes, and board edges clear.
+  - Rebuilt the main component placement into a central electronics channel between the battery holders:
+    - USB-C and protection/CC parts stay on the left edge for cable access.
+    - charger/regulator/power ICs are grouped in the center.
+    - `U16` is placed in the center channel with the other charger/power ICs.
+    - `J4` through `J9` are grouped along the right side but pulled inward to satisfy board-edge clearance.
+    - thermistor/test/auxiliary connectors were moved out of the lower-left mounting-hole and battery-holder keepouts.
+  - Cleared stale tracks from earlier provisional routing so placement could be evaluated without false route artifacts.
+  - Captured placement snapshots:
+    - `/Users/dpang/dev/KiCAD-MCP-Server/joan_sat/eps_board/snapshots/visual-feedback/2026-05-30_12_proper_placement_pass.svg`
+    - `/Users/dpang/dev/KiCAD-MCP-Server/joan_sat/eps_board/snapshots/visual-feedback/2026-05-30_13_proper_placement_cleanup.svg`
+    - `/Users/dpang/dev/KiCAD-MCP-Server/joan_sat/eps_board/snapshots/visual-feedback/2026-05-30_14_placement_edge_cleanup.svg`
+    - `/Users/dpang/dev/KiCAD-MCP-Server/joan_sat/eps_board/snapshots/visual-feedback/2026-05-30_15_proper_placement_pass.svg`
+    - `/Users/dpang/dev/KiCAD-MCP-Server/joan_sat/eps_board/snapshots/visual-feedback/2026-05-30_15_proper_placement_pass.svg.png`
+  - Proper-placement DRC checkpoint:
+    - `/Users/dpang/dev/KiCAD-MCP-Server/joan_sat/eps_board/snapshots/visual-feedback/2026-05-30_15_proper_placement_pass_drc.rpt`
+    - Result: 39 DRC violations and 84 unconnected items.
+    - Remaining non-routing DRC is dominated by imported PC/104 header courtyard/silkscreen overlap, missing `Digitkey_1` footprint library warning, clipped/silkscreen-over-copper warnings, and reference/value text overlap. The new placement no longer has the USB/right-header/mounting-hole/battery courtyard errors from the previous cleanup checkpoint.
+- Conservative local trace pass:
+  - Added 17 short local traces while intentionally ignoring PC/104-related items:
+    - duplicate/adjacent pins on `U4`, `U15`, `U16`, and `U2`
+    - bottom test-point pairs `TP3`/`TP11`, `TP4`/`TP12`, `TP5`/`TP13`, and `TP6`/`TP14`
+    - local `GND` links between `J2`/`TH1`, `R22`/`R23`, and paired USB-C shield pads on `J1`
+  - Tried a broader charger-IC fanout, but rejected it because it reduced unconnected items at the cost of new DRC clearance/short violations around fine-pitch charger pads.
+  - Captured final trace-pass snapshot:
+    - `/Users/dpang/dev/KiCAD-MCP-Server/joan_sat/eps_board/snapshots/visual-feedback/2026-05-30_19_final_conservative_trace_pass.svg`
+    - `/Users/dpang/dev/KiCAD-MCP-Server/joan_sat/eps_board/snapshots/visual-feedback/2026-05-30_19_final_conservative_trace_pass.svg.png`
+  - Final trace-pass DRC checkpoint:
+    - `/Users/dpang/dev/KiCAD-MCP-Server/joan_sat/eps_board/snapshots/visual-feedback/2026-05-30_19_final_conservative_trace_pass_drc.rpt`
+    - Result: 39 DRC violations and 67 unconnected items.
+    - The violation count stayed flat from the placement checkpoint, so the accepted traces did not introduce new DRC errors. Unconnected items dropped from 84 to 67.
+- GND pour and remaining-ratsnest pass:
+  - Added filled `GND` copper pours on both `F.Cu` and `B.Cu` using the PC/104 board outline:
+    - zone names: `CODEX_GND_F` and `CODEX_GND_B`
+    - solid pad connection was used after KiCad flagged thermal-relief starvation on tight USB-C and charger IC pads.
+  - Refilled zones and reran DRC:
+    - `/Users/dpang/dev/KiCAD-MCP-Server/joan_sat/eps_board/snapshots/visual-feedback/2026-05-30_21_ground_pour_solid_drc.rpt`
+    - Result after solid GND pour: 39 DRC violations and 41 unconnected items.
+    - The GND pour removed 26 additional unconnected items without increasing the DRC violation count.
+  - Tried additional routed ratsnest candidates around `U16`/`U2`, `U9`/`U1`, and `VHEAT`. These attempts reduced the ratsnest but were rejected because DRC reported new shorts/clearance violations around fine-pitch pads.
+  - Restored the accepted 17 local traces plus the two GND pours as the current board state.
+  - Captured final GND-pour snapshot:
+    - `/Users/dpang/dev/KiCAD-MCP-Server/joan_sat/eps_board/snapshots/visual-feedback/2026-05-30_23_ground_pour_final.svg`
+    - `/Users/dpang/dev/KiCAD-MCP-Server/joan_sat/eps_board/snapshots/visual-feedback/2026-05-30_23_ground_pour_final.svg.png`
+  - Final DRC checkpoint:
+    - `/Users/dpang/dev/KiCAD-MCP-Server/joan_sat/eps_board/snapshots/visual-feedback/2026-05-30_23_ground_pour_final_drc.rpt`
+    - Result: 39 DRC violations and 41 unconnected items.
+    - Remaining ratsnest is mostly non-GND charger/power/status nets that need via-assisted routing, placement adjustment, or a more deliberate multi-layer routing pass.
+- Via and 4-layer routing pass:
+  - Tried via-assisted routing on the original 2-layer stack. It reduced ratsnest count, but was rejected because back-side routes crossed exposed/GND pad structures and created shorts.
+  - Converted the PCB to a 4-copper-layer stack.
+  - Added one accepted via-assisted internal route:
+    - `VOUT` from `U16` pad 14 to `U2` pad 14
+    - top-layer escapes from the pads
+    - through vias to `In1.Cu`
+    - an internal detour around the through-hole/GND pad field
+  - Tried additional internal/via routes for `PGOOD`, but rejected them because front-layer escapes near adjacent fine-pitch pads caused new DRC clearance errors.
+  - Current accepted state:
+    - 4 copper layers
+    - 24 track/via items
+    - GND pours retained on `F.Cu` and `B.Cu`
+  - Final 4-layer routing snapshot/report:
+    - `/Users/dpang/dev/KiCAD-MCP-Server/joan_sat/eps_board/snapshots/visual-feedback/2026-05-30_29_4layer_vout_final.svg`
+    - `/Users/dpang/dev/KiCAD-MCP-Server/joan_sat/eps_board/snapshots/visual-feedback/2026-05-30_29_4layer_vout_final_drc.rpt`
+    - Result: 39 DRC violations and 40 unconnected items.
+    - The accepted 4-layer `VOUT` route did not increase DRC violations and removed one more ratsnest item.

@@ -276,6 +276,7 @@ For the complete tool reference with access types (direct/routed/additional), se
 - `get_layer_list` - List all board layers
 - `get_board_info` - Retrieve board properties
 - `get_board_2d_view` - Generate board preview image
+- `capture_design_snapshot` - Save schematic and PCB visual snapshots for review
 - `get_board_extents` - Get board bounding box
 - `add_mounting_hole` - Place mounting holes
 - `add_board_text` - Add text annotations
@@ -1165,6 +1166,17 @@ How many Basic parts are available?
   - `src/tools/registry.ts` - Tool categorization and lookup
   - `src/tools/router.ts` - Discovery and execution tools
   - Reduces AI context usage by 70% while maintaining full functionality
+- **Parallel Agent Orchestration:**
+  - `src/tools/agents.ts` - MCP tools for Modal/OpenAI design agents
+  - `python/agent_orchestrator.py` - JSON CLI bridge used by the TypeScript server
+  - `python/agents/parallel_agents.py` - Local-thread and Modal fan-out implementation
+  - Keeps KiCad file mutations serialized in the local worker while parallelizing
+    independent planning, layout review, and DFM checks
+- **Visual Design Viewer:**
+  - `src/tools/viewer.ts` - Captures schematic and PCB snapshots into
+    `snapshots/visual-feedback`
+  - Uses existing KiCad CLI renderers so agents can inspect visual output after
+    edits without requiring user-provided screenshots
 
 ### Python Interface (`python/`)
 
@@ -1176,6 +1188,7 @@ How many Basic parts are available?
   - `factory.py` - Backend auto-detection and instantiation
 - **schemas/tool_schemas.py:** JSON Schema definitions for all tools
 - **resources/resource_definitions.py:** Resource handlers and URIs
+- **agents/:** Modal/OpenAI parallel agents for design planning and review
 - **commands/:** Modular command implementations
   - `project.py` - Project operations
   - `board.py` - Board manipulation
@@ -1212,6 +1225,47 @@ npm run build
 
 # Watch mode for development
 npm run dev
+```
+
+### Modal and Parallel Agents
+
+The server exposes two direct MCP tools for agent orchestration:
+
+- `get_parallel_agent_status` reports whether Modal, the OpenAI Agents SDK, and
+  `OPENAI_API_KEY` are available.
+- `run_parallel_agents` runs independent schematic, layout, and DFM agents in
+  parallel and returns a consolidated KiCad action plan.
+
+Agent execution is controlled with these inputs or environment variables:
+
+```bash
+export OPENAI_API_KEY=...
+export MODAL_OPENAI_SECRET=openai-secret   # optional Modal secret name
+export KICAD_MCP_AGENT_MODEL=gpt-4.1-mini  # optional model override
+```
+
+Use `backend: "modal"` to force Modal execution, `backend: "local"` to use
+local threads, or `backend: "auto"` to prefer Modal when installed. Use
+`openai: "required"` when each agent must make a separate OpenAI Agents SDK call;
+otherwise the tool falls back to deterministic local reviewer output if OpenAI
+credentials are not configured.
+
+### Visual Snapshots
+
+Use `capture_design_snapshot` after schematic or PCB edits to render the current
+design state. The tool saves timestamped schematic and PCB images under
+`<project>/snapshots/visual-feedback/` and can also return the images inline to
+the MCP client for immediate visual inspection.
+
+Typical inputs:
+
+```json
+{
+  "projectPath": "/path/to/project.kicad_pro",
+  "label": "after_usb_c_fix",
+  "includeImages": true,
+  "pcbLayers": ["F.Cu", "F.SilkS", "F.Mask", "Edge.Cuts"]
+}
 ```
 
 ### Running Tests

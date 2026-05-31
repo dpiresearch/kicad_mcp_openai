@@ -1,0 +1,66 @@
+{
+  "source_icd": "/Users/dpang/Documents/smallsat/RF/LTM-1 Generic ICD_v2.5.pdf",
+  "source_board": "/Users/dpang/dev/PROVES/flight_controller_board/FC_V5d_Production_Rev2",
+  "copied_project": "/Users/dpang/dev/KiCAD-MCP-Server/ltm-board-work/FC_V5d_LTM_Integration",
+  "requirements": [
+    {
+      "id": "ltm-stack-position",
+      "domain": "mechanical",
+      "requirement": "Place the LTM at one end of the PC-104 stack because it does not pass PC-104 bus lines through.",
+      "status": "captured"
+    },
+    {
+      "id": "ltm-power",
+      "domain": "power",
+      "requirement": "Provide switched 5.0 V +/- 5% LTM power sized for approximately 2.9 W maximum draw.",
+      "status": "captured"
+    },
+    {
+      "id": "ltm-transmit-inhibit",
+      "domain": "safety",
+      "requirement": "Keep LTM unpowered until transmit-safe conditions are met and antennas are deployed.",
+      "status": "captured"
+    },
+    {
+      "id": "ltm-umbilical-attached",
+      "domain": "integration",
+      "requirement": "Drive Umbilical Attached high when the USB umbilical is connected for bench operation and low in flight.",
+      "status": "captured"
+    },
+    {
+      "id": "ltm-serial-loader",
+      "domain": "integration",
+      "requirement": "Expose the LIHU serial console/code-loader path through the spacecraft umbilical after integration.",
+      "status": "captured"
+    },
+    {
+      "id": "ltm-can",
+      "domain": "data",
+      "requirement": "Use CAN as the primary host interface with extended 29-bit identifiers; host sources for LTM commands should be 8 or above.",
+      "status": "captured"
+    },
+    {
+      "id": "ltm-i2c-master",
+      "domain": "data",
+      "requirement": "Treat optional I2C as LTM-master only; host-side devices must be compatible LTM-readable peripherals.",
+      "status": "captured"
+    },
+    {
+      "id": "ltm-analog-telemetry",
+      "domain": "telemetry",
+      "requirement": "Provide 0-3.3 V analog telemetry inputs to LTM or tie unused telemetry inputs to ground.",
+      "status": "captured"
+    },
+    {
+      "id": "ltm-rf",
+      "domain": "rf",
+      "requirement": "Provide nominal 50 ohm VHF and UHF antenna paths from host antennas to the LTM coax/SMA interfaces.",
+      "status": "captured"
+    }
+  ],
+  "board_observations": [
+    "Copied board has legacy RFM98PW radio footprint U4 and MMCX RF connector RF1.",
+    "Copied board has RF_VCC net that can inform the switched-power pattern but needs power/current review for LTM.",
+    "Copied board has multiple I2C buses and reset/debug/umbilical-related circuitry that need mapping in the next schematic pass."
+  ]
+}

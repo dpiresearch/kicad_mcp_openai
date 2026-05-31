@@ -14,6 +14,41 @@ from PIL import Image
 logger = logging.getLogger("kicad_interface")
 
 
+def _find_kicad_cli() -> Optional[str]:
+    """Return kicad-cli from PATH or common KiCad install locations."""
+    import platform
+    import shutil
+
+    cli = shutil.which("kicad-cli") or shutil.which("kicad-cli.exe")
+    if cli:
+        return cli
+
+    system = platform.system()
+    if system == "Windows":
+        candidates = [
+            r"C:\Program Files\KiCad\10.0\bin\kicad-cli.exe",
+            r"C:\Program Files\KiCad\9.0\bin\kicad-cli.exe",
+            r"C:\Program Files\KiCad\8.0\bin\kicad-cli.exe",
+            r"C:\Program Files (x86)\KiCad\10.0\bin\kicad-cli.exe",
+            r"C:\Program Files (x86)\KiCad\9.0\bin\kicad-cli.exe",
+            r"C:\Program Files (x86)\KiCad\8.0\bin\kicad-cli.exe",
+        ]
+    elif system == "Darwin":
+        candidates = [
+            "/Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli",
+            "/Applications/KiCAD/KiCad.app/Contents/MacOS/kicad-cli",
+            "/usr/local/bin/kicad-cli",
+            "/opt/homebrew/bin/kicad-cli",
+        ]
+    else:
+        candidates = ["/usr/bin/kicad-cli", "/usr/local/bin/kicad-cli"]
+
+    for path in candidates:
+        if os.path.exists(path):
+            return path
+    return None
+
+
 def _svg_to_png(svg_path: str, width: int, height: int) -> Optional[bytes]:
     """Convert SVG to PNG. No cffi dependency.
 
@@ -138,7 +173,6 @@ class BoardViewCommands:
         - "file": image is written next to the .kicad_pcb file and ``filePath`` is returned.
         """
         import glob
-        import shutil
         import subprocess
         import tempfile
 
@@ -171,9 +205,11 @@ class BoardViewCommands:
                     "errorDetails": f"Got: {fmt}",
                 }
             layers: List[str] = params.get("layers", [])
+            if not layers:
+                layers = ["F.Cu", "B.Cu", "F.SilkS", "B.SilkS", "F.Mask", "B.Mask", "Edge.Cuts"]
             response_mode = params.get("responseMode", "inline")
 
-            kicad_cli = shutil.which("kicad-cli") or shutil.which("kicad-cli.exe")
+            kicad_cli = _find_kicad_cli()
             if not kicad_cli:
                 return {
                     "success": False,
@@ -183,8 +219,7 @@ class BoardViewCommands:
 
             with tempfile.TemporaryDirectory() as tmpdir:
                 cmd = [kicad_cli, "pcb", "export", "svg", "--output", tmpdir, "--black-and-white"]
-                if layers:
-                    cmd += ["--layers", ",".join(layers)]
+                cmd += ["--layers", ",".join(layers)]
                 cmd.append(pcb_path)
 
                 try:

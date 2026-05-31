@@ -27,6 +27,8 @@ import { registerSymbolCreatorTools } from "./tools/symbol-creator.js";
 import { registerUITools } from "./tools/ui.js";
 import { registerFreeroutingTools } from "./tools/freerouting.js";
 import { registerRouterTools } from "./tools/router.js";
+import { registerAgentTools } from "./tools/agents.js";
+import { registerViewerTools } from "./tools/viewer.js";
 
 // Import resource registration functions
 import { registerProjectResources } from "./resources/project.js";
@@ -196,6 +198,7 @@ export class KiCADMcpServer {
   private server: McpServer;
   private pythonProcess: ChildProcess | null = null;
   private kicadScriptPath: string;
+  private agentScriptPath: string;
   private stdioTransport!: StdioServerTransport;
   private requestQueue: Array<{
     request: any;
@@ -230,8 +233,12 @@ export class KiCADMcpServer {
 
     // Check if KiCAD script exists
     this.kicadScriptPath = kicadScriptPath;
+    this.agentScriptPath = join(dirname(kicadScriptPath), "agent_orchestrator.py");
     if (!existsSync(this.kicadScriptPath)) {
       throw new Error(`KiCAD interface script not found: ${this.kicadScriptPath}`);
+    }
+    if (!existsSync(this.agentScriptPath)) {
+      throw new Error(`KiCAD agent orchestrator not found: ${this.agentScriptPath}`);
     }
 
     // Initialize the MCP server
@@ -262,6 +269,8 @@ export class KiCADMcpServer {
 
     // Register router tools FIRST (for tool discovery and execution)
     registerRouterTools(this.server, this.callKicadScript.bind(this));
+    registerAgentTools(this.server, { agentScriptPath: this.agentScriptPath });
+    registerViewerTools(this.server, this.callKicadScript.bind(this));
 
     // Register all tools
     registerProjectTools(this.server, this.callKicadScript.bind(this));

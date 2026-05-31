@@ -27,3 +27,9 @@ requests>=2.32.5
 
 # Environment variable management
 python-dotenv>=1.0.0
+
+# Optional parallel agent backends. The MCP server works without these, but
+# install them to run run_parallel_agents with Modal/OpenAI instead of local
+# deterministic fallback agents.
+modal>=1.0.0
+openai-agents>=0.2.0

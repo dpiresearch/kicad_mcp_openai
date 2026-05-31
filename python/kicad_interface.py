@@ -3058,8 +3058,12 @@ class KiCADInterface:
             # Step 1: Export schematic to SVG via kicad-cli
             with tempfile.TemporaryDirectory() as tmpdir:
                 svg_path = os.path.join(tmpdir, "schematic.svg")
+                kicad_cli = self._find_kicad_cli_static()
+                if not kicad_cli:
+                    return {"success": False, "message": "kicad-cli not found in PATH"}
+
                 cmd = [
-                    "kicad-cli",
+                    kicad_cli,
                     "sch",
                     "export",
                     "svg",

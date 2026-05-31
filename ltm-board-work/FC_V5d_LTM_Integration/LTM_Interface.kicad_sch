@@ -1,0 +1,862 @@
+(kicad_sch
+	(version 20250114)
+	(generator "eeschema")
+	(generator_version "9.0")
+	(uuid "4f9f3f9a-d34d-4b04-92b0-98096fd3f07d")
+	(paper "A4")
+	(lib_symbols)
+	(text "AmSat LTM Host Interface"
+		(exclude_from_sim no)
+		(at 22.86 17.78 0)
+		(effects
+			(font
+				(size 1.78 1.78)
+			)
+		)
+		(uuid "f22c3d82-14c7-4a29-a670-f3ef2e3a1d60")
+	)
+	(text "J_LTM is a schematic placeholder for the LTM LIHU / PC-104 host connector. Replace it with exact LTM symbol, pinout, and footprint after LTM KiCad/Gerbers are available."
+		(exclude_from_sim no)
+		(at 22.86 24.13 0)
+		(effects
+			(font
+				(size 1.02 1.02)
+			)
+		)
+		(uuid "c7d6ba13-888b-47f8-be7c-b95748637446")
+	)
+	(text "Power / Safety
+5.0 V +/-5%, ~2.9 W max. Keep LTM power gated until antennas are deployed and transmit is safe. Umbilical Attached: high on bench, low in flight."
+		(exclude_from_sim no)
+		(at 22.86 35.56 0)
+		(effects
+			(font
+				(size 1.02 1.02)
+			)
+		)
+		(uuid "217dae41-4004-40b4-bd51-c2d7f7e5b2ad")
+	)
+	(text "Data Interfaces
+CAN is primary, extended 29-bit IDs. LTM optional I2C is master-only. LIHU UART loader must remain reachable through umbilical after integration."
+		(exclude_from_sim no)
+		(at 22.86 52.07 0)
+		(effects
+			(font
+				(size 1.02 1.02)
+			)
+		)
+		(uuid "856d35ad-4b74-4466-880f-dfaaf6a7e29d")
+	)
+	(text "RF / Telemetry
+Host provides nominal 50 ohm VHF and UHF antenna paths. TLM1-4 are 0-3.3 V analog inputs; tie unused TLM inputs to GND."
+		(exclude_from_sim no)
+		(at 22.86 68.58 0)
+		(effects
+			(font
+				(size 1.02 1.02)
+			)
+		)
+		(uuid "14bc7c71-704e-4bfa-b400-07ecb66c9f9d")
+	)
+	(text "J_LTM
+LTM host interface
+connector placeholder"
+		(exclude_from_sim no)
+		(at 94.62 82.55 0)
+		(effects
+			(font
+				(size 1.02 1.02)
+			)
+		)
+		(uuid "80ee5858-be8b-4c4f-8667-5e712cbbd5d3")
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_02x11_Odd_Even")
+		(at 100.00 95.25 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "96de1763-6bd5-406b-861d-743f39b33469")
+		(property "Reference" "J_LTM"
+			(at 101.27 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LTM_HOST_CONN_PLACEHOLDER"
+			(at 101.27 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 100.00 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "LTM-1 Generic ICD_v2.5.pdf"
+			(at 100.00 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Placeholder LTM host connector; exact LIHU/PC-104 pinout and footprint TBD"
+			(at 100.00 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d3743926-628c-4ef3-9463-92cb99b110bb")
+		)
+		(pin "2"
+			(uuid "58c75e95-28ba-4a91-89c9-7405ad76669a")
+		)
+		(pin "3"
+			(uuid "5f326246-6e0b-4e42-a032-bbe5f1419caf")
+		)
+		(pin "4"
+			(uuid "09316025-17ae-49d7-b4f3-72bc8cd6d441")
+		)
+		(pin "5"
+			(uuid "89189d5f-60b7-436c-aae3-78bfe147ad85")
+		)
+		(pin "6"
+			(uuid "eb10f10e-3212-44f5-8f44-2f4344efbd7d")
+		)
+		(pin "7"
+			(uuid "9026bc8a-a1b7-4ece-b362-8fbb308942d3")
+		)
+		(pin "8"
+			(uuid "ec9116b0-60fa-4779-b07e-9f59a6ad4f4f")
+		)
+		(pin "9"
+			(uuid "61c4b02e-f7fa-41db-bb33-624f14ec88d3")
+		)
+		(pin "10"
+			(uuid "8f5dca07-798e-4b68-926e-4f7129f85782")
+		)
+		(pin "11"
+			(uuid "5b8db488-490d-4ea3-992b-26460dbf5592")
+		)
+		(pin "12"
+			(uuid "b7197e59-3042-4d4b-8f86-bd9838598f9c")
+		)
+		(pin "13"
+			(uuid "4623d816-c884-4733-8e87-9127659bda10")
+		)
+		(pin "14"
+			(uuid "868ec79e-7526-430b-b5ec-fd98f3cafe8a")
+		)
+		(pin "15"
+			(uuid "a39e4a59-5893-45ac-93ce-5ba913c3e76c")
+		)
+		(pin "16"
+			(uuid "ea6d1a6a-043b-4738-b09e-636d04e4d9db")
+		)
+		(pin "17"
+			(uuid "e734cd3b-e930-448c-91fa-1ae80a59ee61")
+		)
+		(pin "18"
+			(uuid "fca7bf8d-0811-4c26-987b-4e581212a995")
+		)
+		(pin "19"
+			(uuid "1f5bfad9-7eab-429d-a5d3-8f68367e2285")
+		)
+		(pin "20"
+			(uuid "2f498462-6544-4f86-902a-25b7dcfcc51c")
+		)
+		(pin "21"
+			(uuid "dad55f46-fc5e-4a30-9786-57106dee6ada")
+		)
+		(pin "22"
+			(uuid "22693653-8098-4997-a89c-4f401151328a")
+		)
+		(instances
+			(project "FC_V5d_Production_Rev2"
+				(path "/c64c0d72-a9f6-4f3a-891e-1f647558f538/af66ace6-b472-4cc3-a83b-b79911b496d0"
+					(reference "J_LTM")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(hierarchical_label "LTM_VSYS_5V"
+		(shape input)
+		(at 66.04 95.25 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "0e4fbb02-1b2a-401e-bdd8-53520c4bbd9d")
+	)
+	(wire
+		(pts
+			(xy 66.04 95.25) (xy 94.92 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6be94b66-26bf-4662-9b4d-eb22a2e98b56")
+	)
+	(label "LTM_VSYS_5V"
+		(at 77.47 94.49 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "41567d0e-f3f7-4036-b90e-e9100149b186")
+	)
+	(hierarchical_label "GND"
+		(shape passive)
+		(at 66.04 92.71 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "c41dfd11-04ce-4727-9e21-f5cce2a21247")
+	)
+	(wire
+		(pts
+			(xy 66.04 92.71) (xy 94.92 92.71)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "56da6935-8c41-44bc-b2b1-bc9ee3a0ff49")
+	)
+	(label "GND"
+		(at 77.47 91.95 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "4b9a9b61-4c7d-4d81-bb72-a3e6de91ccf5")
+	)
+	(hierarchical_label "LTM_POWER_ENABLE"
+		(shape input)
+		(at 66.04 90.17 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "0ee1100a-8e41-472d-8c2c-411a0d3f8c8e")
+	)
+	(wire
+		(pts
+			(xy 66.04 90.17) (xy 94.92 90.17)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "788b0518-9788-40d4-8149-f5bf2020416a")
+	)
+	(label "LTM_POWER_ENABLE"
+		(at 77.47 89.41 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "b2033a65-2aaf-4312-910b-e84c736eefe2")
+	)
+	(hierarchical_label "LTM_CAN_H"
+		(shape bidirectional)
+		(at 66.04 87.63 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "39c0d3a4-d596-4209-bfae-232a28d10fb5")
+	)
+	(wire
+		(pts
+			(xy 66.04 87.63) (xy 94.92 87.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e59ce7ce-5ce6-473d-bb4c-71bc3ba94d2a")
+	)
+	(label "LTM_CAN_H"
+		(at 77.47 86.87 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "9d4d9f6d-7c4d-472b-8f7e-877d4f9f9503")
+	)
+	(hierarchical_label "LTM_CAN_L"
+		(shape bidirectional)
+		(at 66.04 85.09 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "1cd11c34-51ba-428c-893a-6a5ecf449878")
+	)
+	(wire
+		(pts
+			(xy 66.04 85.09) (xy 94.92 85.09)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "34d10b6d-0381-4a68-966f-6f7d330554f7")
+	)
+	(label "LTM_CAN_L"
+		(at 77.47 84.33 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "44d217f1-5e7c-4724-a2d4-89dfaae3bd25")
+	)
+	(hierarchical_label "LTM_UART_TX_TO_HOST"
+		(shape output)
+		(at 66.04 82.55 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "d996f3ad-abf4-4bca-a8c1-0d11d0bbabd8")
+	)
+	(wire
+		(pts
+			(xy 66.04 82.55) (xy 94.92 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f4437208-9d82-4a0a-a726-e1512432986f")
+	)
+	(label "LTM_UART_TX_TO_HOST"
+		(at 77.47 81.79 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "e032a3ba-4bc0-4bff-8496-c4bc0303119b")
+	)
+	(hierarchical_label "LTM_UART_RX_FROM_HOST"
+		(shape input)
+		(at 66.04 80.01 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "c447d819-fcb7-4e05-9574-2834e6f8670f")
+	)
+	(wire
+		(pts
+			(xy 66.04 80.01) (xy 94.92 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8510d43e-38e2-49d4-be07-3eb6bc348b24")
+	)
+	(label "LTM_UART_RX_FROM_HOST"
+		(at 77.47 79.25 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "c98a9dcc-15be-4400-b441-ce99dacf901f")
+	)
+	(hierarchical_label "LTM_UMBILICAL_ATTACHED"
+		(shape input)
+		(at 66.04 77.47 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "68a29450-7a0e-4b07-a8f4-c4ec132e5653")
+	)
+	(wire
+		(pts
+			(xy 66.04 77.47) (xy 94.92 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1984cac3-8409-4183-87b4-854e2cb43806")
+	)
+	(label "LTM_UMBILICAL_ATTACHED"
+		(at 77.47 76.71 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "44f888fd-918b-4bd4-947f-4f6bbc178f4c")
+	)
+	(hierarchical_label "LTM_VHF_ANT_50R"
+		(shape passive)
+		(at 66.04 74.93 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "43f08363-88ce-46ac-bf40-08ce2fe2211d")
+	)
+	(wire
+		(pts
+			(xy 66.04 74.93) (xy 94.92 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2ee78333-9808-4722-8067-3bccfe515d7c")
+	)
+	(label "LTM_VHF_ANT_50R"
+		(at 77.47 74.17 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "72fce2e1-806b-4d3f-9181-64c7f567d9ab")
+	)
+	(hierarchical_label "LTM_UHF_ANT_50R"
+		(shape passive)
+		(at 66.04 72.39 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "c7657f50-a8ea-4fbc-9bb6-b05f573499e4")
+	)
+	(wire
+		(pts
+			(xy 66.04 72.39) (xy 94.92 72.39)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "900d404d-c24c-4121-b31a-159571a2ebd8")
+	)
+	(label "LTM_UHF_ANT_50R"
+		(at 77.47 71.63 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "4cd58fb8-3345-4fb1-8843-07bfec06b534")
+	)
+	(label "SPARE_TBD"
+		(at 77.47 69.09 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "1997fe5b-d45c-40d5-848b-2d7f9721ccb8")
+	)
+	(hierarchical_label "LTM_I2C_SCL"
+		(shape output)
+		(at 137.16 95.25 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "f40ac201-3b91-40e6-acc3-4cc0e23e2dbd")
+	)
+	(wire
+		(pts
+			(xy 107.62 95.25) (xy 137.16 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e2070d53-bbfa-4a58-99e5-5e73e895d8b1")
+	)
+	(label "LTM_I2C_SCL"
+		(at 111.76 94.49 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "34d7263a-b597-4c8d-815c-5a1acc53ee4c")
+	)
+	(hierarchical_label "LTM_I2C_SDA"
+		(shape bidirectional)
+		(at 137.16 92.71 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "7a3e8648-2b06-4ff1-a582-2dfa009abbde")
+	)
+	(wire
+		(pts
+			(xy 107.62 92.71) (xy 137.16 92.71)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a8179da7-baef-4ada-ab2e-d7d4dfcd531e")
+	)
+	(label "LTM_I2C_SDA"
+		(at 111.76 91.95 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "f545b1d0-6e2c-4c26-9a29-cd22c2a65b69")
+	)
+	(hierarchical_label "LTM_I2C_RESET"
+		(shape input)
+		(at 137.16 90.17 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "18f27e78-2ab9-4f6b-a447-df816714e07f")
+	)
+	(wire
+		(pts
+			(xy 107.62 90.17) (xy 137.16 90.17)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9e2c4bb4-c397-4c6d-b36b-ee0b22749d05")
+	)
+	(label "LTM_I2C_RESET"
+		(at 111.76 89.41 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "e85d0b52-d76c-451c-8d7f-e49f054254e4")
+	)
+	(hierarchical_label "LTM_TLM1"
+		(shape input)
+		(at 137.16 87.63 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "9f4c39e3-ca0b-4ca8-86c0-1190026113a4")
+	)
+	(wire
+		(pts
+			(xy 107.62 87.63) (xy 137.16 87.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8d34cf7e-fb35-40c9-970d-d800a79a9c2f")
+	)
+	(label "LTM_TLM1"
+		(at 111.76 86.87 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "24c8e650-b1c2-4559-9938-0e9f9466abdc")
+	)
+	(hierarchical_label "LTM_TLM2"
+		(shape input)
+		(at 137.16 85.09 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "a938617d-4396-4ead-a0ac-494132b62ef0")
+	)
+	(wire
+		(pts
+			(xy 107.62 85.09) (xy 137.16 85.09)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5a841cc5-47a1-4dec-a4e0-57f77fd7785d")
+	)
+	(label "LTM_TLM2"
+		(at 111.76 84.33 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "23166624-c409-44b0-b077-207d9543d89f")
+	)
+	(hierarchical_label "LTM_TLM3"
+		(shape input)
+		(at 137.16 82.55 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "b240e53e-3277-4229-b434-aca6ca931981")
+	)
+	(wire
+		(pts
+			(xy 107.62 82.55) (xy 137.16 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "593d69e7-6698-4c29-8668-c10c3b1de12d")
+	)
+	(label "LTM_TLM3"
+		(at 111.76 81.79 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "19e8cc1b-e272-4d32-9805-1cd9d82d353f")
+	)
+	(hierarchical_label "LTM_TLM4"
+		(shape input)
+		(at 137.16 80.01 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "dfeb52bd-5e9b-4f5e-a4c4-7aba8edb7dec")
+	)
+	(wire
+		(pts
+			(xy 107.62 80.01) (xy 137.16 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e6414594-b292-4252-b7cf-cbb5f58f3c3a")
+	)
+	(label "LTM_TLM4"
+		(at 111.76 79.25 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "2ed0be01-c3e0-4d19-ad47-5e6f074b1e00")
+	)
+	(hierarchical_label "LTM_GPIO1"
+		(shape bidirectional)
+		(at 137.16 77.47 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "6453653e-0bfd-4cc4-96b3-0e90d776cf87")
+	)
+	(wire
+		(pts
+			(xy 107.62 77.47) (xy 137.16 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "74fd1d33-dd1c-423e-b837-a7c676ebcbe1")
+	)
+	(label "LTM_GPIO1"
+		(at 111.76 76.71 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "43089a88-4636-43ad-a3e1-a934ba59cb3a")
+	)
+	(hierarchical_label "LTM_GPIO2"
+		(shape bidirectional)
+		(at 137.16 74.93 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "0577e645-a905-4080-91ec-32416560027c")
+	)
+	(wire
+		(pts
+			(xy 107.62 74.93) (xy 137.16 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "03bf2763-e9d9-4693-9770-aca00468e44f")
+	)
+	(label "LTM_GPIO2"
+		(at 111.76 74.17 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "cf6b4916-12a3-45e9-a90f-14d7a5726ee3")
+	)
+	(hierarchical_label "LTM_GPIO3"
+		(shape bidirectional)
+		(at 137.16 72.39 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "a3de8893-a0c5-4da3-9919-8511d7f5994a")
+	)
+	(wire
+		(pts
+			(xy 107.62 72.39) (xy 137.16 72.39)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5ae11d97-d8ae-4b53-b6e7-f1d04aa38b07")
+	)
+	(label "LTM_GPIO3"
+		(at 111.76 71.63 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "35a978ef-b92d-4ffc-a75e-fb099cbb3fc8")
+	)
+	(hierarchical_label "LTM_GPIO4"
+		(shape bidirectional)
+		(at 137.16 69.85 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "500590d7-c7bd-4779-8801-9978ee6c9381")
+	)
+	(wire
+		(pts
+			(xy 107.62 69.85) (xy 137.16 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d3a20cd6-dd4f-404d-a7a3-0e622fd183e6")
+	)
+	(label "LTM_GPIO4"
+		(at 111.76 69.09 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "b49feb0f-8cd2-4757-9fb9-d1902f4906b6")
+	)
+	(embedded_fonts no)
+)

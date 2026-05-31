@@ -1,0 +1,355 @@
+** Drc report for Untitled.kicad_pcb **
+** Created on 2026-05-30T16:05:08-0700 **
+
+** Found 60 DRC violations **
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(174.7800 mm, 134.4950 mm): Footprint MH_PC104_1
+    @(174.0000 mm, 132.0000 mm): Footprint J9
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(103.6500 mm, 63.1100 mm): Footprint J_PC104_A
+    @(103.5700 mm, 58.0750 mm): Footprint J_PC104_B
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.0000 mm)
+    Rule: board setup constraints edge; error
+    @(181.2800 mm, 134.4950 mm): Segment on Edge.Cuts
+    @(181.6200 mm, 99.0000 mm): PTH pad 4 [<no net>] of J6
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.0000 mm)
+    Rule: board setup constraints edge; error
+    @(181.2800 mm, 134.4950 mm): Segment on Edge.Cuts
+    @(181.6200 mm, 121.0000 mm): PTH pad 4 [<no net>] of J8
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.2000 mm)
+    Rule: board setup constraints edge; error
+    @(89.2800 mm, 134.4950 mm): Segment on Edge.Cuts
+    @(88.3550 mm, 97.2500 mm): Pad A1 [GND] of J1 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.2000 mm)
+    Rule: board setup constraints edge; error
+    @(89.2800 mm, 134.4950 mm): Segment on Edge.Cuts
+    @(88.3550 mm, 96.4500 mm): Pad A4 [VBUS] of J1 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.2000 mm)
+    Rule: board setup constraints edge; error
+    @(89.2800 mm, 134.4950 mm): Segment on Edge.Cuts
+    @(88.3550 mm, 95.2500 mm): Pad A5 [Net-(J1-CC1)] of J1 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.2000 mm)
+    Rule: board setup constraints edge; error
+    @(89.2800 mm, 134.4950 mm): Segment on Edge.Cuts
+    @(88.3550 mm, 94.2500 mm): Pad A6 [<no net>] of J1 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.2000 mm)
+    Rule: board setup constraints edge; error
+    @(89.2800 mm, 134.4950 mm): Segment on Edge.Cuts
+    @(88.3550 mm, 93.7500 mm): Pad A7 [<no net>] of J1 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.2000 mm)
+    Rule: board setup constraints edge; error
+    @(89.2800 mm, 134.4950 mm): Segment on Edge.Cuts
+    @(88.3550 mm, 92.7500 mm): Pad A8 [<no net>] of J1 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.2000 mm)
+    Rule: board setup constraints edge; error
+    @(89.2800 mm, 134.4950 mm): Segment on Edge.Cuts
+    @(88.3550 mm, 91.5500 mm): Pad A9 [VBUS] of J1 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.2000 mm)
+    Rule: board setup constraints edge; error
+    @(89.2800 mm, 134.4950 mm): Segment on Edge.Cuts
+    @(88.3550 mm, 90.7500 mm): Pad A12 [GND] of J1 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.2000 mm)
+    Rule: board setup constraints edge; error
+    @(89.2800 mm, 134.4950 mm): Segment on Edge.Cuts
+    @(88.3550 mm, 90.7500 mm): Pad B1 [GND] of J1 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.2000 mm)
+    Rule: board setup constraints edge; error
+    @(89.2800 mm, 134.4950 mm): Segment on Edge.Cuts
+    @(88.3550 mm, 91.5500 mm): Pad B4 [VBUS] of J1 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.2000 mm)
+    Rule: board setup constraints edge; error
+    @(89.2800 mm, 134.4950 mm): Segment on Edge.Cuts
+    @(88.3550 mm, 92.2500 mm): Pad B5 [Net-(J1-CC2)] of J1 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.2000 mm)
+    Rule: board setup constraints edge; error
+    @(89.2800 mm, 134.4950 mm): Segment on Edge.Cuts
+    @(88.3550 mm, 93.2500 mm): Pad B6 [<no net>] of J1 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.2000 mm)
+    Rule: board setup constraints edge; error
+    @(89.2800 mm, 134.4950 mm): Segment on Edge.Cuts
+    @(88.3550 mm, 94.7500 mm): Pad B7 [<no net>] of J1 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.2000 mm)
+    Rule: board setup constraints edge; error
+    @(89.2800 mm, 134.4950 mm): Segment on Edge.Cuts
+    @(88.3550 mm, 95.7500 mm): Pad B8 [<no net>] of J1 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.2000 mm)
+    Rule: board setup constraints edge; error
+    @(89.2800 mm, 134.4950 mm): Segment on Edge.Cuts
+    @(88.3550 mm, 96.4500 mm): Pad B9 [VBUS] of J1 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.2000 mm)
+    Rule: board setup constraints edge; error
+    @(89.2800 mm, 134.4950 mm): Segment on Edge.Cuts
+    @(88.3550 mm, 97.2500 mm): Pad B12 [GND] of J1 on F.Cu
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.0000 mm)
+    Rule: board setup constraints edge; error
+    @(89.2800 mm, 134.4950 mm): Segment on Edge.Cuts
+    @(89.2700 mm, 98.3200 mm): PTH pad S1 [GND] of J1
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.0000 mm)
+    Rule: board setup constraints edge; error
+    @(89.2800 mm, 134.4950 mm): Segment on Edge.Cuts
+    @(89.2700 mm, 89.6800 mm): PTH pad S1 [GND] of J1
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.0000 mm)
+    Rule: board setup constraints edge; error
+    @(181.2800 mm, 134.4950 mm): Segment on Edge.Cuts
+    @(181.6200 mm, 77.0000 mm): PTH pad 4 [GND] of J4
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.0000 mm)
+    Rule: board setup constraints edge; error
+    @(181.2800 mm, 134.4950 mm): Segment on Edge.Cuts
+    @(181.6200 mm, 110.0000 mm): PTH pad 4 [<no net>] of J7
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.0000 mm)
+    Rule: board setup constraints edge; error
+    @(181.2800 mm, 134.4950 mm): Segment on Edge.Cuts
+    @(181.6200 mm, 88.0000 mm): PTH pad 4 [<no net>] of J5
+[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.5000 mm; actual 0.0000 mm)
+    Rule: board setup constraints edge; error
+    @(181.2800 mm, 134.4950 mm): Segment on Edge.Cuts
+    @(181.6200 mm, 132.0000 mm): PTH pad 4 [<no net>] of J9
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(181.2800 mm, 134.4950 mm): Segment on Edge.Cuts
+    @(175.2700 mm, 97.6200 mm): Segment of J6 on F.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(181.2800 mm, 134.4950 mm): Segment on Edge.Cuts
+    @(175.2700 mm, 100.3800 mm): Segment of J6 on F.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(181.2800 mm, 134.4950 mm): Segment on Edge.Cuts
+    @(175.2700 mm, 119.6200 mm): Segment of J8 on F.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(181.2800 mm, 134.4950 mm): Segment on Edge.Cuts
+    @(175.2700 mm, 122.3800 mm): Segment of J8 on F.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(181.2800 mm, 134.4950 mm): Segment on Edge.Cuts
+    @(175.2700 mm, 75.6200 mm): Segment of J4 on F.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(181.2800 mm, 134.4950 mm): Segment on Edge.Cuts
+    @(175.2700 mm, 78.3800 mm): Segment of J4 on F.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(181.2800 mm, 134.4950 mm): Segment on Edge.Cuts
+    @(175.2700 mm, 108.6200 mm): Segment of J7 on F.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(181.2800 mm, 134.4950 mm): Segment on Edge.Cuts
+    @(175.2700 mm, 111.3800 mm): Segment of J7 on F.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(89.2800 mm, 55.4950 mm): Segment on Edge.Cuts
+    @(95.7800 mm, 51.5450 mm): Reference field of MH_PC104_2
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(181.2800 mm, 134.4950 mm): Segment on Edge.Cuts
+    @(175.2700 mm, 86.6200 mm): Segment of J5 on F.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(181.2800 mm, 134.4950 mm): Segment on Edge.Cuts
+    @(175.2700 mm, 89.3800 mm): Segment of J5 on F.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(181.2800 mm, 55.4950 mm): Segment on Edge.Cuts
+    @(174.7800 mm, 51.5450 mm): Reference field of MH_PC104_4
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(181.2800 mm, 134.4950 mm): Segment on Edge.Cuts
+    @(175.2700 mm, 130.6200 mm): Segment of J9 on F.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(181.2800 mm, 134.4950 mm): Segment on Edge.Cuts
+    @(175.2700 mm, 133.3800 mm): Segment of J9 on F.Silkscreen
+[lib_footprint_issues]: The footprint library 'Digitkey_1' was not found at '/Users/dpang/Documents/KiCad/9.0/footprints/Digitkey_1.pretty'.
+    Local override; warning
+    @(103.6500 mm, 63.1100 mm): Footprint J_PC104_A
+[lib_footprint_issues]: The footprint library 'Digitkey_1' was not found at '/Users/dpang/Documents/KiCad/9.0/footprints/Digitkey_1.pretty'.
+    Local override; warning
+    @(103.5700 mm, 58.0750 mm): Footprint J_PC104_B
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(104.5550 mm, 57.4150 mm): Reference field of J_PC104_A
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(112.0000 mm, 84.6700 mm): Reference field of F1
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(174.0000 mm, 133.3800 mm): Segment of J9 on F.Silkscreen
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(175.2700 mm, 133.3800 mm): Segment of J9 on F.Silkscreen
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(175.2700 mm, 133.3800 mm): Segment of J9 on F.Silkscreen
+[silk_overlap]: Silkscreen overlap
+    Rule: board setup constraints silk; warning
+    @(174.7800 mm, 130.5450 mm): Reference field of MH_PC104_1
+    @(175.2700 mm, 133.3800 mm): Segment of J9 on F.Silkscreen
+[silk_overlap]: Silkscreen overlap
+    Rule: board setup constraints silk; warning
+    @(175.2700 mm, 130.6200 mm): Segment of J9 on F.Silkscreen
+    @(174.7800 mm, 130.5450 mm): Reference field of MH_PC104_1
+[silk_overlap]: Silkscreen overlap
+    Rule: board setup constraints silk; warning
+    @(119.0000 mm, 82.3520 mm): Reference field of TP18
+    @(115.5000 mm, 82.3520 mm): Reference field of TP17
+[silk_overlap]: Silkscreen overlap
+    Rule: board setup constraints silk; warning
+    @(168.3400 mm, 54.2650 mm): Segment of J_PC104_B on F.Silkscreen
+    @(168.4200 mm, 59.3000 mm): Segment of J_PC104_A on F.Silkscreen
+[silk_overlap]: Silkscreen overlap
+    Rule: board setup constraints silk; warning
+    @(168.3400 mm, 59.3450 mm): Segment of J_PC104_B on F.Silkscreen
+    @(168.4200 mm, 59.3000 mm): Segment of J_PC104_A on F.Silkscreen
+[silk_overlap]: Silkscreen overlap
+    Rule: board setup constraints silk; warning
+    @(102.3000 mm, 59.3450 mm): Segment of J_PC104_B on F.Silkscreen
+    @(168.4200 mm, 59.3000 mm): Segment of J_PC104_A on F.Silkscreen
+[silk_overlap]: Silkscreen overlap
+    Rule: board setup constraints silk; warning
+    @(168.4200 mm, 59.3000 mm): Segment of J_PC104_A on F.Silkscreen
+    @(168.3400 mm, 54.2650 mm): Segment of J_PC104_B on F.Silkscreen
+[silk_overlap]: Silkscreen overlap
+    Rule: board setup constraints silk; warning
+    @(168.4200 mm, 59.3000 mm): Segment of J_PC104_A on F.Silkscreen
+    @(168.3400 mm, 59.3450 mm): Segment of J_PC104_B on F.Silkscreen
+[silk_overlap]: Silkscreen overlap
+    Rule: board setup constraints silk; warning
+    @(102.3800 mm, 64.3800 mm): Segment of J_PC104_A on F.Silkscreen
+    @(168.3400 mm, 59.3450 mm): Segment of J_PC104_B on F.Silkscreen
+[silk_overlap]: Silkscreen overlap
+    Rule: board setup constraints silk; warning
+    @(112.0000 mm, 84.0000 mm): Circle of TP16 on F.Silkscreen
+    @(112.0000 mm, 84.6700 mm): Reference field of F1
+[silk_overlap]: Silkscreen overlap
+    Rule: board setup constraints silk; warning
+    @(104.5550 mm, 57.4150 mm): Reference field of J_PC104_A
+    @(101.6500 mm, 58.0750 mm): Circle of J_PC104_B on F.Silkscreen
+[silk_overlap]: Silkscreen overlap
+    Rule: board setup constraints silk; warning
+    @(104.5550 mm, 57.4150 mm): Reference field of J_PC104_A
+    @(102.3000 mm, 59.3450 mm): Segment of J_PC104_B on F.Silkscreen
+[silk_overlap]: Silkscreen overlap
+    Rule: board setup constraints silk; warning
+    @(102.3800 mm, 64.3800 mm): Segment of J_PC104_A on F.Silkscreen
+    @(102.3000 mm, 59.3450 mm): Segment of J_PC104_B on F.Silkscreen
+
+** Found 28 unconnected pads **
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(139.0000 mm, 132.0000 mm): PTH pad 1 [~{CHRG}] of TP13
+    @(145.0000 mm, 136.0000 mm): PTH pad 1 [~{CHRG}] of TP5
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(120.2900 mm, 112.0000 mm): Pad 2 [+3.3V] of U4 on F.Cu
+    @(120.2900 mm, 112.9500 mm): Pad 3 [+3.3V] of U4 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(133.0000 mm, 132.0000 mm): PTH pad 1 [POL] of TP12
+    @(139.0000 mm, 136.0000 mm): PTH pad 1 [POL] of TP4
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(111.0000 mm, 119.0000 mm): PTH pad 1 [NTC] of TH1
+    @(120.3500 mm, 126.9500 mm): Pad 4 [NTC] of U10 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(120.3500 mm, 125.0500 mm): Pad 6 [VHEAT] of U10 on F.Cu
+    @(127.6500 mm, 125.0500 mm): Pad 1 [VHEAT] of U11 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(88.3550 mm, 90.7500 mm): Pad B1 [GND] of J1 on F.Cu
+    @(88.3550 mm, 97.2500 mm): Pad B12 [GND] of J1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(88.3550 mm, 97.2500 mm): Pad B12 [GND] of J1 on F.Cu
+    @(89.2700 mm, 98.3200 mm): PTH pad S1 [GND] of J1
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(89.2700 mm, 89.6800 mm): PTH pad S1 [GND] of J1
+    @(88.3550 mm, 90.7500 mm): Pad B1 [GND] of J1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(89.2700 mm, 89.6800 mm): PTH pad S1 [GND] of J1
+    @(93.4500 mm, 89.6800 mm): PTH pad S1 [GND] of J1
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(93.4500 mm, 98.3200 mm): PTH pad S1 [GND] of J1
+    @(89.2700 mm, 98.3200 mm): PTH pad S1 [GND] of J1
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(93.4500 mm, 98.3200 mm): PTH pad S1 [GND] of J1
+    @(102.2900 mm, 97.0000 mm): Pad 1 [GND] of R23 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(102.2900 mm, 91.0000 mm): Pad 1 [GND] of R22 on F.Cu
+    @(102.2900 mm, 97.0000 mm): Pad 1 [GND] of R23 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(102.2900 mm, 91.0000 mm): Pad 1 [GND] of R22 on F.Cu
+    @(115.7900 mm, 93.0500 mm): Pad 1 [GND] of U5 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(103.2700 mm, 119.0000 mm): PTH pad 2 [GND] of J2
+    @(112.2700 mm, 119.0000 mm): PTH pad 2 [GND] of TH1
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(112.2700 mm, 119.0000 mm): PTH pad 2 [GND] of TH1
+    @(117.6500 mm, 126.0000 mm): Pad 2 [GND] of U10 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(115.7900 mm, 93.0500 mm): Pad 1 [GND] of U5 on F.Cu
+    @(120.2900 mm, 111.0500 mm): Pad 1 [GND] of U4 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(117.6500 mm, 126.0000 mm): Pad 2 [GND] of U10 on F.Cu
+    @(127.6500 mm, 126.0000 mm): Pad 2 [GND] of U11 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(120.2900 mm, 111.0500 mm): Pad 1 [GND] of U4 on F.Cu
+    @(112.2700 mm, 119.0000 mm): PTH pad 2 [GND] of TH1
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(144.2900 mm, 112.4700 mm): Pad 4 [GND] of U84 on F.Cu
+    @(127.6500 mm, 126.0000 mm): Pad 2 [GND] of U11 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(147.7100 mm, 111.8300 mm): Pad 6 [GND] of U84 on F.Cu
+    @(147.7100 mm, 112.4700 mm): Pad 5 [GND] of U84 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(147.7100 mm, 111.8300 mm): Pad 6 [GND] of U84 on F.Cu
+    @(179.0800 mm, 77.0000 mm): PTH pad 3 [GND] of J4
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(147.7100 mm, 112.4700 mm): Pad 5 [GND] of U84 on F.Cu
+    @(144.2900 mm, 112.4700 mm): Pad 4 [GND] of U84 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(181.6200 mm, 77.0000 mm): PTH pad 4 [GND] of J4
+    @(179.0800 mm, 77.0000 mm): PTH pad 3 [GND] of J4
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(127.0000 mm, 132.0000 mm): PTH pad 1 [SHDN] of TP11
+    @(133.0000 mm, 136.0000 mm): PTH pad 1 [SHDN] of TP3
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(145.0000 mm, 132.0000 mm): PTH pad 1 [~{ACPR}] of TP14
+    @(151.0000 mm, 136.0000 mm): PTH pad 1 [~{ACPR}] of TP6
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(88.3550 mm, 91.5500 mm): Pad B4 [VBUS] of J1 on F.Cu
+    @(88.3550 mm, 96.4500 mm): Pad B9 [VBUS] of J1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(88.3550 mm, 95.2500 mm): Pad A5 [Net-(J1-CC1)] of J1 on F.Cu
+    @(103.3100 mm, 91.0000 mm): Pad 2 [Net-(J1-CC1)] of R22 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(88.3550 mm, 92.2500 mm): Pad B5 [Net-(J1-CC2)] of J1 on F.Cu
+    @(103.3100 mm, 97.0000 mm): Pad 2 [Net-(J1-CC2)] of R23 on F.Cu
+
+** Found 0 Footprint errors **
+
+** End of Report **

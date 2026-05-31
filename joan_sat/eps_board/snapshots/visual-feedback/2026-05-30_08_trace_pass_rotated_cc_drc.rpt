@@ -1,0 +1,158 @@
+** Drc report for Untitled.kicad_pcb **
+** Created on 2026-05-30T16:16:03-0700 **
+
+** Found 24 DRC violations **
+[shorting_items]: Items shorting two nets (nets  and NTC)
+    Local override; error
+    @(111.0000 mm, 128.0000 mm): PTH pad 1 [<no net>] of TH2
+    @(111.0000 mm, 119.0000 mm): Track [NTC] on F.Cu, length 9.5000 mm
+[shorting_items]: Items shorting two nets (nets NTC and )
+    Local override; error
+    @(111.0000 mm, 128.5000 mm): Track [NTC] on F.Cu, length 9.3500 mm
+    @(111.0000 mm, 128.0000 mm): PTH pad 1 [<no net>] of TH2
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(103.6500 mm, 63.1100 mm): Footprint J_PC104_A
+    @(103.5700 mm, 58.0750 mm): Footprint J_PC104_B
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(111.0000 mm, 128.5000 mm): Track [NTC] on F.Cu, length 9.3500 mm
+    @(111.0000 mm, 128.0000 mm): PTH pad 1 [<no net>] of TH2
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(111.0000 mm, 128.5000 mm): Track [NTC] on F.Cu, length 9.3500 mm
+    @(112.2700 mm, 128.0000 mm): PTH pad 2 [<no net>] of TH2
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(111.0000 mm, 119.0000 mm): Track [NTC] on F.Cu, length 9.5000 mm
+    @(111.0000 mm, 128.0000 mm): PTH pad 1 [<no net>] of TH2
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(89.2800 mm, 134.4950 mm): Segment on Edge.Cuts
+    @(88.9550 mm, 94.0000 mm): Reference field of J1
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(89.2800 mm, 55.4950 mm): Segment on Edge.Cuts
+    @(95.7800 mm, 51.5450 mm): Reference field of MH_PC104_2
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(181.2800 mm, 55.4950 mm): Segment on Edge.Cuts
+    @(174.7800 mm, 51.5450 mm): Reference field of MH_PC104_4
+[lib_footprint_issues]: The footprint library 'Digitkey_1' was not found at '/Users/dpang/Documents/KiCad/9.0/footprints/Digitkey_1.pretty'.
+    Local override; warning
+    @(103.6500 mm, 63.1100 mm): Footprint J_PC104_A
+[lib_footprint_issues]: The footprint library 'Digitkey_1' was not found at '/Users/dpang/Documents/KiCad/9.0/footprints/Digitkey_1.pretty'.
+    Local override; warning
+    @(103.5700 mm, 58.0750 mm): Footprint J_PC104_B
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(104.5550 mm, 57.4150 mm): Reference field of J_PC104_A
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(112.0000 mm, 84.6700 mm): Reference field of F1
+[silk_overlap]: Silkscreen overlap
+    Rule: board setup constraints silk; warning
+    @(112.0000 mm, 84.0000 mm): Circle of TP16 on F.Silkscreen
+    @(112.0000 mm, 84.6700 mm): Reference field of F1
+[silk_overlap]: Silkscreen overlap
+    Rule: board setup constraints silk; warning
+    @(104.5550 mm, 57.4150 mm): Reference field of J_PC104_A
+    @(101.6500 mm, 58.0750 mm): Circle of J_PC104_B on F.Silkscreen
+[silk_overlap]: Silkscreen overlap
+    Rule: board setup constraints silk; warning
+    @(104.5550 mm, 57.4150 mm): Reference field of J_PC104_A
+    @(102.3000 mm, 59.3450 mm): Segment of J_PC104_B on F.Silkscreen
+[silk_overlap]: Silkscreen overlap
+    Rule: board setup constraints silk; warning
+    @(102.3800 mm, 64.3800 mm): Segment of J_PC104_A on F.Silkscreen
+    @(102.3000 mm, 59.3450 mm): Segment of J_PC104_B on F.Silkscreen
+[silk_overlap]: Silkscreen overlap
+    Rule: board setup constraints silk; warning
+    @(102.3800 mm, 64.3800 mm): Segment of J_PC104_A on F.Silkscreen
+    @(168.3400 mm, 59.3450 mm): Segment of J_PC104_B on F.Silkscreen
+[silk_overlap]: Silkscreen overlap
+    Rule: board setup constraints silk; warning
+    @(102.3000 mm, 59.3450 mm): Segment of J_PC104_B on F.Silkscreen
+    @(168.4200 mm, 59.3000 mm): Segment of J_PC104_A on F.Silkscreen
+[silk_overlap]: Silkscreen overlap
+    Rule: board setup constraints silk; warning
+    @(119.0000 mm, 82.3520 mm): Reference field of TP18
+    @(115.5000 mm, 82.3520 mm): Reference field of TP17
+[silk_overlap]: Silkscreen overlap
+    Rule: board setup constraints silk; warning
+    @(168.3400 mm, 54.2650 mm): Segment of J_PC104_B on F.Silkscreen
+    @(168.4200 mm, 59.3000 mm): Segment of J_PC104_A on F.Silkscreen
+[silk_overlap]: Silkscreen overlap
+    Rule: board setup constraints silk; warning
+    @(168.3400 mm, 59.3450 mm): Segment of J_PC104_B on F.Silkscreen
+    @(168.4200 mm, 59.3000 mm): Segment of J_PC104_A on F.Silkscreen
+[silk_overlap]: Silkscreen overlap
+    Rule: board setup constraints silk; warning
+    @(168.4200 mm, 59.3000 mm): Segment of J_PC104_A on F.Silkscreen
+    @(168.3400 mm, 54.2650 mm): Segment of J_PC104_B on F.Silkscreen
+[silk_overlap]: Silkscreen overlap
+    Rule: board setup constraints silk; warning
+    @(168.4200 mm, 59.3000 mm): Segment of J_PC104_A on F.Silkscreen
+    @(168.3400 mm, 59.3450 mm): Segment of J_PC104_B on F.Silkscreen
+
+** Found 14 unconnected pads **
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(90.5550 mm, 90.7500 mm): Pad A12 [GND] of J1 on F.Cu
+    @(90.5550 mm, 97.2500 mm): Pad A1 [GND] of J1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(90.5550 mm, 97.2500 mm): Pad A1 [GND] of J1 on F.Cu
+    @(91.4700 mm, 98.3200 mm): PTH pad S1 [GND] of J1
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(91.4700 mm, 89.6800 mm): PTH pad S1 [GND] of J1
+    @(90.5550 mm, 90.7500 mm): Pad A12 [GND] of J1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(91.4700 mm, 89.6800 mm): PTH pad S1 [GND] of J1
+    @(95.6500 mm, 89.6800 mm): PTH pad S1 [GND] of J1
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(91.4700 mm, 98.3200 mm): PTH pad S1 [GND] of J1
+    @(95.6500 mm, 98.3200 mm): PTH pad S1 [GND] of J1
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(102.0100 mm, 92.2500 mm): Track [GND] on F.Cu, length 3.0000 mm
+    @(95.6500 mm, 89.6800 mm): PTH pad S1 [GND] of J1
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(103.2700 mm, 119.0000 mm): PTH pad 2 [GND] of J2
+    @(112.2700 mm, 119.0000 mm): PTH pad 2 [GND] of TH1
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(112.2700 mm, 119.0000 mm): PTH pad 2 [GND] of TH1
+    @(117.6500 mm, 126.0000 mm): Pad 2 [GND] of U10 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(117.6500 mm, 126.0000 mm): Pad 2 [GND] of U10 on F.Cu
+    @(127.6500 mm, 126.0000 mm): Pad 2 [GND] of U11 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(120.2900 mm, 111.0500 mm): Pad 1 [GND] of U4 on F.Cu
+    @(112.2700 mm, 119.0000 mm): PTH pad 2 [GND] of TH1
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(120.2900 mm, 111.0500 mm): Pad 1 [GND] of U4 on F.Cu
+    @(102.0100 mm, 93.0500 mm): Track [GND] on F.Cu, length 13.7800 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(127.6500 mm, 126.0000 mm): Pad 2 [GND] of U11 on F.Cu
+    @(144.2900 mm, 112.4700 mm): Track [GND] on F.Cu, length 3.4200 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(176.5800 mm, 75.0000 mm): Track [GND] on F.Cu, length 2.5400 mm
+    @(147.7100 mm, 112.4700 mm): Track [GND] on F.Cu, length 0.6400 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(90.5550 mm, 91.5500 mm): Pad A9 [VBUS] of J1 on F.Cu
+    @(90.5550 mm, 96.4500 mm): Pad B9 [VBUS] of J1 on F.Cu
+
+** Found 0 Footprint errors **
+
+** End of Report **

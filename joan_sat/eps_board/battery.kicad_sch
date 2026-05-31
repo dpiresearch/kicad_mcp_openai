@@ -1,0 +1,3857 @@
+(kicad_sch
+	(version 20250114)
+	(generator "eeschema")
+	(generator_version "9.0")
+	(uuid "e79e3b08-aa92-4121-ac14-88b22bf8245e")
+	(paper "A4")
+	(title_block
+		(title "Battery")
+	)
+	(lib_symbols
+		(symbol "1K_Custom_Symbol:FPF2123"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "U"
+				(at 0 13.97 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "1K_Custom_Symbol_FPF2123"
+				(at 0 11.43 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5_HandSoldering"
+				(at 1.27 -24.13 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 7.62 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Mfr. #" "FPF2123"
+				(at 0 -30.48 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Order" "https://www.digikey.com/product-detail/en/on-semiconductor/FPF2123/FPF2123CT-ND/1033703"
+				(at -7.62 -26.67 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "FPF2123_0_0"
+				(text "OFF"
+					(at -3.81 0 0)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(text "ON"
+					(at 1.27 0 0)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(symbol "FPF2123_0_1"
+				(rectangle
+					(start -6.35 10.16)
+					(end 6.35 -6.35)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -5.08 -1.27) (xy -1.27 -1.27) (xy -1.27 2.54) (xy 2.54 2.54)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "FPF2123_1_1"
+				(pin power_in line
+					(at -8.89 7.62 0)
+					(length 2.54)
+					(name "VIN"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -8.89 3.81 0)
+					(length 2.54)
+					(name "ON"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 0 -8.89 90)
+					(length 2.54)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_out line
+					(at 8.89 7.62 180)
+					(length 2.54)
+					(name "VOUT"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 8.89 3.81 180)
+					(length 2.54)
+					(name "ISET"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Comparator:MCP65R46"
+			(pin_names
+				(offset 0.127)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "U"
+				(at 1.27 3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "MCP65R46"
+				(at 6.35 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "http://ww1.microchip.com/downloads/en/DeviceDoc/22269B.pdf"
+				(at 13.97 24.13 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "3 μA Comparator with Integrated Reference Voltage, SOT-23-6"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "cmp reference open collector drain"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "SOT?23*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "MCP65R46_0_1"
+				(polyline
+					(pts
+						(xy 3.556 -0.508) (xy 3.048 -0.508) (xy 3.556 0) (xy 3.048 0.508) (xy 2.54 0) (xy 3.048 -0.508)
+						(xy 2.54 -0.508)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "MCP65R46_1_1"
+				(polyline
+					(pts
+						(xy -5.08 5.08) (xy -5.08 -5.08) (xy 5.08 0) (xy -5.08 5.08)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin input line
+					(at -7.62 2.54 0)
+					(length 2.54)
+					(name "+"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -7.62 -2.54 0)
+					(length 2.54)
+					(name "-"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -2.54 7.62 270)
+					(length 3.81)
+					(name "V+"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -2.54 -7.62 90)
+					(length 3.81)
+					(name "V-"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_out line
+					(at 0 7.62 270)
+					(length 5.08)
+					(name "Vref"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin open_collector line
+					(at 7.62 0 180)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Connector:Conn_01x02_Female"
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Connector_Conn_01x02_Female"
+				(at 0 -5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Connector*:*_1x??_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Conn_01x02_Female_1_1"
+				(polyline
+					(pts
+						(xy -1.27 0) (xy -0.508 0)
+					)
+					(stroke
+						(width 0.1524)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 -2.54) (xy -0.508 -2.54)
+					)
+					(stroke
+						(width 0.1524)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 0 -0.508)
+					(mid -0.508 0)
+					(end 0 0.508)
+					(stroke
+						(width 0.1524)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 0 -3.048)
+					(mid -0.508 -2.54)
+					(end 0 -2.032)
+					(stroke
+						(width 0.1524)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 3.81)
+					(name "Pin_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -2.54 0)
+					(length 3.81)
+					(name "Pin_2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Device:Battery_Cell"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "BT"
+				(at 2.54 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "Battery_Cell"
+				(at 2.54 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 1.524 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 1.524 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Single-cell battery"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Sim.Device" "V"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Sim.Type" "DC"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Sim.Pins" "1=+ 2=-"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "battery cell"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Battery_Cell_0_1"
+				(rectangle
+					(start -2.286 1.778)
+					(end 2.286 1.524)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start -1.524 1.016)
+					(end 1.524 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 1.778) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0.762) (xy 0 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.762 3.048) (xy 1.778 3.048)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 3.556) (xy 1.27 2.54)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "Battery_Cell_1_1"
+				(pin passive line
+					(at 0 5.08 270)
+					(length 2.54)
+					(name "+"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -2.54 90)
+					(length 2.54)
+					(name "-"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Device:C"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0.254)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "C"
+				(at 0.635 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "C"
+				(at 0.635 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" ""
+				(at 0.9652 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Unpolarized capacitor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "cap capacitor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "C_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "C_0_1"
+				(polyline
+					(pts
+						(xy -2.032 0.762) (xy 2.032 0.762)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.032 -0.762) (xy 2.032 -0.762)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "C_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 2.794)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 2.794)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Device:Polyfuse"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "F"
+				(at -2.54 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Polyfuse"
+				(at 2.54 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 1.27 -5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Resettable fuse, polymeric positive temperature coefficient"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "resettable fuse PTC PPTC polyfuse polyswitch"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "*polyfuse* *PTC*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Polyfuse_0_1"
+				(polyline
+					(pts
+						(xy -1.524 2.54) (xy -1.524 1.524) (xy 1.524 -1.524) (xy 1.524 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -0.762 2.54)
+					(end 0.762 -2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.54) (xy 0 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "Polyfuse_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Device:R"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "R"
+				(at 2.032 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "R"
+				(at 0 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at -1.778 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Resistor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "R res resistor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "R_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "R_0_1"
+				(rectangle
+					(start -1.016 -2.54)
+					(end 1.016 2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "R_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Device:Thermistor_NTC"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "TH"
+				(at -4.445 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Thermistor_NTC"
+				(at 3.175 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Temperature dependent resistor, negative temperature coefficient"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "thermistor NTC resistor sensor RTD"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "R_* RV_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Thermistor_NTC_0_1"
+				(arc
+					(start -3.175 2.413)
+					(mid -3.0506 2.3165)
+					(end -3.048 2.159)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -3.048 2.794)
+					(mid -2.9736 2.9736)
+					(end -2.794 3.048)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -2.794 3.048)
+					(mid -2.6144 2.9736)
+					(end -2.54 2.794)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -2.794 2.54)
+					(mid -2.9736 2.6144)
+					(end -3.048 2.794)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -2.794 1.905)
+					(mid -2.9736 1.9794)
+					(end -3.048 2.159)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -2.54 2.159)
+					(mid -2.6144 1.9794)
+					(end -2.794 1.905)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -2.159 2.794)
+					(mid -2.434 2.5608)
+					(end -2.794 2.54)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 2.159) (xy -2.54 2.794)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 -3.683) (xy -2.54 -1.397) (xy -2.794 -2.159) (xy -2.286 -2.159) (xy -2.54 -1.397) (xy -2.54 -1.651)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.778 2.54) (xy -1.778 1.524) (xy 1.778 -1.524) (xy 1.778 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.778 -1.397) (xy -1.778 -3.683) (xy -2.032 -2.921) (xy -1.524 -2.921) (xy -1.778 -3.683)
+						(xy -1.778 -3.429)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start -1.016 2.54)
+					(end 1.016 -2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "Thermistor_NTC_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+	)
+	(text "Battery heater control circuit"
+		(exclude_from_sim no)
+		(at 105.41 26.67 0)
+		(effects
+			(font
+				(size 2.9972 2.9972)
+			)
+			(justify left bottom)
+		)
+		(uuid "189e084e-6691-41f6-b290-4854174522a5")
+	)
+	(text "<== Rnom"
+		(exclude_from_sim no)
+		(at 77.47 119.38 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "2b0d8b0a-c1f5-4d49-8308-ba52b07d673c")
+	)
+	(text "2.82A Hold\n8A Trip"
+		(exclude_from_sim no)
+		(at 208.28 123.19 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "3076cf1f-fc19-4ce7-9e70-74fff7a395a1")
+	)
+	(text "Bypass CAP for FPF VOUT"
+		(exclude_from_sim no)
+		(at 155.575 74.295 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "3c1c453b-9d5d-43d4-8bd6-ddfff206906b")
+	)
+	(text "https://www.keyelco.com/product.cfm/product_id/826 \nBattery holder ^^^\n"
+		(exclude_from_sim no)
+		(at 156.21 145.415 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "54c7c900-b2b0-410b-896f-20c8ffef3f43")
+	)
+	(text "Bypass CAP for FPF VIN"
+		(exclude_from_sim no)
+		(at 114.935 74.295 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "5d87d3a9-8174-4378-ab56-65f3c492ab63")
+	)
+	(text "Heater connection"
+		(exclude_from_sim no)
+		(at 207.645 52.07 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "74006896-34cb-412e-875e-86f5af51201c")
+	)
+	(text "Hot point= 50C = 0.41*Rnom"
+		(exclude_from_sim no)
+		(at 71.12 109.22 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "889eeb2b-df14-4aba-b8d5-df273993e29a")
+	)
+	(text "NTC output for battery charger\nand heater circuit (see above) "
+		(exclude_from_sim no)
+		(at 43.815 170.815 0)
+		(effects
+			(font
+				(size 2.9972 2.9972)
+			)
+			(justify left bottom)
+		)
+		(uuid "958d2d73-288e-46ce-99e8-f9e1a230c19a")
+	)
+	(text "150mA current Limit\nset by 3090 Ohm resistor"
+		(exclude_from_sim no)
+		(at 172.72 52.07 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "9726aaf5-2829-421a-80ab-0f1ad3e45aa3")
+	)
+	(text "Cold Point= 0C =  2.82*Rnom"
+		(exclude_from_sim no)
+		(at 69.85 111.76 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "f388f77e-340e-4f5b-9629-21074bf996f8")
+	)
+	(text "Bypass CAP for MCP VIN"
+		(exclude_from_sim no)
+		(at 66.04 40.005 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "f4008b1d-bcd2-4176-9eb7-b33b3cbc8c69")
+	)
+	(text "When 73.7% VNTC > NTC, the comparator will be open drain.\nThis indicates it is hot, and the heater should not be on.\nWhen NTC > 73.7% VNTC, the comparator will be high impedance and the load switch will turn on.\nNotice this resistor divider has (nearly) the same ratio as when the NTC is at it's cold point"
+		(exclude_from_sim no)
+		(at 46.99 81.28 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "f6f5951d-e8ba-4409-bcc2-9fe883f29e70")
+	)
+	(junction
+		(at 67.945 125.095)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "08004b79-0287-4db4-bab4-de1f0d90e532")
+	)
+	(junction
+		(at 62.23 71.12)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "18cb9c7c-c994-4e35-9dda-571b9a950a79")
+	)
+	(junction
+		(at 111.76 58.42)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "5200d03a-a785-419a-bedd-4329f74e7686")
+	)
+	(junction
+		(at 92.71 71.12)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "5f62128e-1c4f-4748-afd0-1d82abe39239")
+	)
+	(junction
+		(at 161.925 71.12)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "6b1b3429-80fb-445a-96c8-2f5c009d361c")
+	)
+	(junction
+		(at 92.71 41.91)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7a461f47-6813-4c63-a82f-ca8e8521ec26")
+	)
+	(junction
+		(at 171.45 54.61)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "8cdafdc3-d12e-40f4-a8df-57829085ed03")
+	)
+	(junction
+		(at 118.745 58.42)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "93b0aed0-88fe-41b5-8b42-71d2da8f61e6")
+	)
+	(junction
+		(at 146.685 71.12)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "97f4cbba-4589-478b-8012-a24a1326966f")
+	)
+	(junction
+		(at 127 71.12)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "992c1240-1bcf-460a-af1f-89a051e9840d")
+	)
+	(junction
+		(at 85.725 55.88)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ae4b5b6c-28c2-4593-a20b-4481d4e35e94")
+	)
+	(junction
+		(at 127 41.91)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ce89a752-5f65-498a-a141-a84e30a946ce")
+	)
+	(junction
+		(at 73.025 71.12)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d0137a45-7d0a-41a7-895b-50913159efbf")
+	)
+	(junction
+		(at 73.025 41.91)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d04b4a13-570d-4e5f-829d-1014bbcca4c7")
+	)
+	(junction
+		(at 62.23 55.88)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d5c474cc-bfce-4785-b099-e2bce306df20")
+	)
+	(junction
+		(at 118.745 41.91)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "f64f6e2d-cf6b-482d-b0de-a347a93b7436")
+	)
+	(wire
+		(pts
+			(xy 57.15 41.91) (xy 73.025 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "01432b7a-8524-42ad-98fc-57719fbbabb6")
+	)
+	(wire
+		(pts
+			(xy 101.6 48.895) (xy 85.725 48.895)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0368e8ed-6580-4aa6-b2f2-0bc3d58984d9")
+	)
+	(wire
+		(pts
+			(xy 62.23 64.77) (xy 62.23 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "071831ae-7b35-4164-b1c3-12528c58d7e4")
+	)
+	(wire
+		(pts
+			(xy 161.925 56.515) (xy 161.925 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "08e484e1-f0fa-4e0d-b5d0-275d0465245f")
+	)
+	(wire
+		(pts
+			(xy 92.71 41.91) (xy 118.745 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "09be98b4-fd13-4015-a701-4cee028a26ea")
+	)
+	(wire
+		(pts
+			(xy 92.71 41.91) (xy 92.71 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0bcc1562-9b9d-4802-b70f-50ab67bfc015")
+	)
+	(wire
+		(pts
+			(xy 67.945 122.555) (xy 67.945 125.095)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1a341579-335a-4b55-bd07-034e9d896d19")
+	)
+	(wire
+		(pts
+			(xy 118.745 53.975) (xy 118.745 58.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1aa00a56-5498-480b-afa5-31e9fc5ab16b")
+	)
+	(wire
+		(pts
+			(xy 127 41.91) (xy 137.795 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1f347c18-45a3-406e-8f9f-33b52eec5060")
+	)
+	(polyline
+		(pts
+			(xy 231.775 149.86) (xy 231.775 105.41)
+		)
+		(stroke
+			(width 0.508)
+			(type dash)
+		)
+		(uuid "22f74df2-2208-434b-8cb6-9dceaea5cfe4")
+	)
+	(wire
+		(pts
+			(xy 109.22 48.895) (xy 111.76 48.895)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "27df70fb-e4a9-474a-a65a-b9ba0bee7d27")
+	)
+	(wire
+		(pts
+			(xy 186.69 123.825) (xy 186.69 125.095)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2d868890-2e92-47a7-82a9-7a4e87652523")
+	)
+	(wire
+		(pts
+			(xy 170.18 111.76) (xy 186.69 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "300e1337-11ea-4297-bf09-5acb2548a390")
+	)
+	(wire
+		(pts
+			(xy 155.575 41.91) (xy 171.45 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "303d88f1-d971-42e6-a3f4-87a8d2b602b8")
+	)
+	(wire
+		(pts
+			(xy 204.47 57.15) (xy 212.09 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "32eb65b0-bde9-481a-9e90-6302656f877b")
+	)
+	(polyline
+		(pts
+			(xy 244.475 82.55) (xy 45.085 82.55)
+		)
+		(stroke
+			(width 0.508)
+			(type dash)
+		)
+		(uuid "37169f31-b18d-45d2-a09b-734f582ef728")
+	)
+	(wire
+		(pts
+			(xy 186.69 132.715) (xy 186.69 135.89)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3739fc59-7bca-4a20-8d4b-520f9f3e6072")
+	)
+	(wire
+		(pts
+			(xy 73.025 50.8) (xy 73.025 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3abf32e5-29d3-4ea3-a00d-cacd3897f9b1")
+	)
+	(wire
+		(pts
+			(xy 62.23 55.88) (xy 85.725 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "407a1d36-1e2a-4463-b85d-dec9763e6aaf")
+	)
+	(wire
+		(pts
+			(xy 170.18 135.89) (xy 186.69 135.89)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "413a47f6-19be-44e0-8b09-39db65577287")
+	)
+	(wire
+		(pts
+			(xy 67.945 142.24) (xy 58.42 142.24)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "47465c4b-0740-4625-97ab-aa557809dc81")
+	)
+	(wire
+		(pts
+			(xy 118.745 41.91) (xy 127 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "484549ad-d8ab-4f4d-a93c-dec2b4473bc4")
+	)
+	(wire
+		(pts
+			(xy 161.925 45.72) (xy 161.925 48.895)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "49612771-7112-49c5-b016-7c5a1cae80c0")
+	)
+	(wire
+		(pts
+			(xy 67.945 125.095) (xy 58.42 125.095)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "49a827f3-ff56-4383-ace7-b6bace741a34")
+	)
+	(wire
+		(pts
+			(xy 161.925 71.12) (xy 171.45 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4a43df35-d352-4ef8-902f-ee569b0df1d5")
+	)
+	(wire
+		(pts
+			(xy 73.025 43.18) (xy 73.025 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4eb66fca-92c9-4b2c-84fb-a22ea462979e")
+	)
+	(wire
+		(pts
+			(xy 132.715 45.72) (xy 137.795 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "54f41c8c-4b94-404a-b7f7-bfd03f71d68e")
+	)
+	(polyline
+		(pts
+			(xy 132.715 149.86) (xy 231.775 149.86)
+		)
+		(stroke
+			(width 0.508)
+			(type dash)
+		)
+		(uuid "62e31197-f0d5-4407-9b3a-c7a3e0a48530")
+	)
+	(wire
+		(pts
+			(xy 118.745 46.355) (xy 118.745 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "673d3241-8459-4a5c-b192-2d53a78f19f7")
+	)
+	(wire
+		(pts
+			(xy 57.15 45.72) (xy 62.23 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6dccc70b-1a40-4d8a-9da6-dfff6202ada0")
+	)
+	(wire
+		(pts
+			(xy 171.45 41.91) (xy 171.45 54.61)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6f035b3c-3725-4821-b1e8-a06d8b28e890")
+	)
+	(polyline
+		(pts
+			(xy 45.085 33.02) (xy 244.475 33.02)
+		)
+		(stroke
+			(width 0.508)
+			(type dash)
+		)
+		(uuid "72204a1c-c440-4ab5-9575-f783e2f4fc4e")
+	)
+	(wire
+		(pts
+			(xy 62.23 54.61) (xy 62.23 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "75592836-6b1d-4c6c-b307-6d050e963310")
+	)
+	(wire
+		(pts
+			(xy 67.945 110.49) (xy 58.42 110.49)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7a96a695-e724-4f51-a37d-2c5a69872736")
+	)
+	(wire
+		(pts
+			(xy 127 71.12) (xy 146.685 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7ab8c595-97c2-43f4-8a99-8454a6689f3b")
+	)
+	(wire
+		(pts
+			(xy 62.23 55.88) (xy 62.23 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7cafb666-095b-43cf-a58c-e7d4c12fc0ee")
+	)
+	(wire
+		(pts
+			(xy 132.715 58.42) (xy 132.715 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "844803e3-2916-4928-993f-a956593acd57")
+	)
+	(wire
+		(pts
+			(xy 73.025 41.91) (xy 92.71 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "86a0d01c-b836-4431-bdbc-5b7d10193839")
+	)
+	(wire
+		(pts
+			(xy 85.725 48.895) (xy 85.725 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "86d73147-a30d-4c30-a602-4410a0fa26c3")
+	)
+	(wire
+		(pts
+			(xy 83.185 60.96) (xy 87.63 60.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "87e0285a-bd10-4eea-a5da-b579331c6ba9")
+	)
+	(polyline
+		(pts
+			(xy 132.715 105.41) (xy 132.715 149.86)
+		)
+		(stroke
+			(width 0.508)
+			(type dash)
+		)
+		(uuid "8da7078d-4818-49e8-9cf1-8cba443916fd")
+	)
+	(wire
+		(pts
+			(xy 73.025 71.12) (xy 92.71 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "90a68e3f-7416-4bd8-9986-69d8551d26dc")
+	)
+	(wire
+		(pts
+			(xy 62.23 45.72) (xy 62.23 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "917df812-2a2c-4ef5-8325-02ad2de7c8e9")
+	)
+	(wire
+		(pts
+			(xy 85.725 55.88) (xy 87.63 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "94449163-3c90-4309-9017-7b2937057824")
+	)
+	(wire
+		(pts
+			(xy 67.945 114.935) (xy 67.945 110.49)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "97a99dd9-4d54-42f6-b686-78c887d039a1")
+	)
+	(wire
+		(pts
+			(xy 146.685 58.42) (xy 146.685 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9dfdf83c-2780-473e-b05d-dd63156f6ed9")
+	)
+	(wire
+		(pts
+			(xy 111.76 48.895) (xy 111.76 58.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a2ad08ca-0b3a-407d-8079-3d6c74b8e2e2")
+	)
+	(wire
+		(pts
+			(xy 102.87 58.42) (xy 111.76 58.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a4682af8-9068-4091-9774-9aa20c8b096e")
+	)
+	(wire
+		(pts
+			(xy 171.45 71.12) (xy 171.45 68.58)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "adc0a373-e9e3-4bfc-b4c8-60d1727d374b")
+	)
+	(wire
+		(pts
+			(xy 62.23 71.12) (xy 73.025 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b20d0ef1-b4b7-46f9-b589-9f36522ff5fc")
+	)
+	(wire
+		(pts
+			(xy 92.71 71.12) (xy 92.71 66.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b2e1dafd-8925-4cc5-a000-597351d3653e")
+	)
+	(wire
+		(pts
+			(xy 171.45 54.61) (xy 212.09 54.61)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b3c4fe06-d09a-480f-8374-ec0c7a00b4ec")
+	)
+	(wire
+		(pts
+			(xy 57.15 71.12) (xy 62.23 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b6aba186-3a5a-4e97-aaa5-0238ba4b6fca")
+	)
+	(wire
+		(pts
+			(xy 186.69 111.76) (xy 186.69 116.205)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bca3fb8a-e3c6-4a21-8bad-678a91271a70")
+	)
+	(wire
+		(pts
+			(xy 171.45 54.61) (xy 171.45 60.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bf2c949a-7cc4-4bbd-8879-bd9a62860e71")
+	)
+	(wire
+		(pts
+			(xy 92.71 71.12) (xy 127 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c23dbc14-0348-42ec-a7f2-45a1d28c7969")
+	)
+	(wire
+		(pts
+			(xy 155.575 45.72) (xy 161.925 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c288a656-dad8-4c07-9ef9-770b7865502a")
+	)
+	(wire
+		(pts
+			(xy 111.76 58.42) (xy 118.745 58.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c544900f-9c11-4981-bf20-f10ac0eb8c4e")
+	)
+	(polyline
+		(pts
+			(xy 100.965 106.045) (xy 100.965 150.495)
+		)
+		(stroke
+			(width 0.508)
+			(type dash)
+		)
+		(uuid "c70b0dab-5f68-4d06-8c1e-710cecf649fe")
+	)
+	(wire
+		(pts
+			(xy 127 68.58) (xy 127 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c72dd14f-e202-4da4-9620-0e1ae6313d48")
+	)
+	(wire
+		(pts
+			(xy 118.745 58.42) (xy 132.715 58.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cfeca0fb-79e1-434d-b1e0-4bcc8fe02339")
+	)
+	(wire
+		(pts
+			(xy 67.945 125.095) (xy 67.945 127)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d20ab29d-54e5-419b-8649-dbc053933e82")
+	)
+	(polyline
+		(pts
+			(xy 244.475 82.55) (xy 244.475 33.02)
+		)
+		(stroke
+			(width 0.508)
+			(type dash)
+		)
+		(uuid "da97fa12-0e1c-4544-b8fa-a535165cdc61")
+	)
+	(polyline
+		(pts
+			(xy 49.53 106.045) (xy 49.53 150.495)
+		)
+		(stroke
+			(width 0.508)
+			(type dash)
+		)
+		(uuid "dcf3a984-4591-407f-b909-6a8850dd7e03")
+	)
+	(wire
+		(pts
+			(xy 67.945 134.62) (xy 67.945 142.24)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "deec48ad-c926-4548-a535-d848272cbf85")
+	)
+	(polyline
+		(pts
+			(xy 49.53 106.045) (xy 101.6 106.045)
+		)
+		(stroke
+			(width 0.508)
+			(type dash)
+		)
+		(uuid "e3290264-ef6c-4c65-a8d1-e883fce05c0e")
+	)
+	(wire
+		(pts
+			(xy 127 41.91) (xy 127 60.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e791f6e9-2124-4e09-b64f-7f4863d8515e")
+	)
+	(polyline
+		(pts
+			(xy 45.085 82.55) (xy 45.085 33.02)
+		)
+		(stroke
+			(width 0.508)
+			(type dash)
+		)
+		(uuid "eca7123c-a2fa-4470-be5f-a67388face07")
+	)
+	(polyline
+		(pts
+			(xy 100.965 150.495) (xy 48.895 150.495)
+		)
+		(stroke
+			(width 0.508)
+			(type dash)
+		)
+		(uuid "f046f4ff-7a98-4120-ab54-b2284d7669fe")
+	)
+	(polyline
+		(pts
+			(xy 231.775 105.41) (xy 132.715 105.41)
+		)
+		(stroke
+			(width 0.508)
+			(type dash)
+		)
+		(uuid "f25c73ed-89f9-4d7d-ab6e-88cb37ec3731")
+	)
+	(wire
+		(pts
+			(xy 146.685 71.12) (xy 161.925 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f2aeb43a-82b4-42a4-ae3b-432cb9633366")
+	)
+	(hierarchical_label "VNTC"
+		(shape input)
+		(at 57.15 45.72 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "017e1fd6-2270-455a-99c0-fed2bb7367c8")
+	)
+	(hierarchical_label "GND"
+		(shape input)
+		(at 204.47 57.15 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "1126a02a-62ec-4a0c-b2c5-471d0e520501")
+	)
+	(hierarchical_label "VBAT"
+		(shape output)
+		(at 170.18 111.76 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "256598dd-7210-45c5-ac19-2a8036af0904")
+	)
+	(hierarchical_label "VHEAT"
+		(shape input)
+		(at 57.15 41.91 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "2c01f631-d5ab-4adf-9d2b-12048a02fd99")
+	)
+	(hierarchical_label "GND"
+		(shape input)
+		(at 57.15 71.12 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "3dedac7b-ed1f-4ea7-bf39-ffba57e59135")
+	)
+	(hierarchical_label "NTC"
+		(shape output)
+		(at 58.42 125.095 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "8635dd51-c259-4c33-a300-635f53578144")
+	)
+	(hierarchical_label "GND"
+		(shape input)
+		(at 58.42 142.24 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "acfd30e2-b021-4754-93ed-5865c7524b08")
+	)
+	(hierarchical_label "NTC"
+		(shape output)
+		(at 83.185 60.96 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "b39ef147-a126-45ec-be5d-40267da8ed79")
+	)
+	(hierarchical_label "GND"
+		(shape input)
+		(at 170.18 135.89 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "b477a688-794f-44a2-8127-2247b900c56b")
+	)
+	(hierarchical_label "VNTC"
+		(shape input)
+		(at 58.42 110.49 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "f06a1549-0d7e-4bc0-8da2-d7990985bf5f")
+	)
+	(symbol
+		(lib_id "Device:Thermistor_NTC")
+		(at 67.945 130.81 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-00005f335e5f")
+		(property "Reference" "TH1"
+			(at 70.4342 129.6416 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Thermistor_NTC"
+			(at 70.4342 131.953 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_1.27mm:PinHeader_1x02_P1.27mm_Vertical"
+			(at 67.945 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 67.945 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 67.945 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mfr. #" "NXFT15XH103FA2B130"
+			(at 67.945 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Order" "https://www.digikey.com/en/products/detail/murata-electronics/NXFT15XH103FA2B130/3863299"
+			(at 67.945 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a2fefd3c-a537-4e74-bf84-74aa3b382e7d")
+		)
+		(pin "2"
+			(uuid "a8375e01-23a5-4283-a129-3e869ff77607")
+		)
+		(instances
+			(project "Untitled"
+				(path "/8c4ecf61-4b10-475d-98a5-bab8adafb6c5/a825eac1-85ac-4d75-bfa4-34eb7c9c199c"
+					(reference "TH2")
+					(unit 1)
+				)
+				(path "/8c4ecf61-4b10-475d-98a5-bab8adafb6c5/fc1c497e-82f6-4955-96b6-54ddf3e4ddd3"
+					(reference "TH1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 67.945 118.745 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-00005f337e75")
+		(property "Reference" "R67"
+			(at 69.723 117.5766 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10K"
+			(at 69.723 119.888 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
+			(at 66.167 118.745 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 67.945 118.745 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 67.945 118.745 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mfr. #" "RMCF0603FT10K0"
+			(at 67.945 118.745 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Order" "https://www.digikey.com/en/products/detail/stackpole-electronics-inc/RMCF0603FT10K0/1761235"
+			(at 67.945 118.745 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9fac1111-e2f7-4796-a21c-df0b9b8afe5a")
+		)
+		(pin "2"
+			(uuid "902b0680-2e55-433b-9952-717f239ccd8b")
+		)
+		(instances
+			(project "Untitled"
+				(path "/8c4ecf61-4b10-475d-98a5-bab8adafb6c5/a825eac1-85ac-4d75-bfa4-34eb7c9c199c"
+					(reference "R18")
+					(unit 1)
+				)
+				(path "/8c4ecf61-4b10-475d-98a5-bab8adafb6c5/fc1c497e-82f6-4955-96b6-54ddf3e4ddd3"
+					(reference "R67")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:Battery_Cell")
+		(at 186.69 130.175 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-00005f45a0cc")
+		(property "Reference" "BT1"
+			(at 190.5 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Battery_Cell"
+			(at 190.5 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "footprint_custom:BatteryHolder_Keystone_54_v2_1x18650"
+			(at 186.69 128.651 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.keyelco.com/product.cfm/product_id/826"
+			(at 186.69 128.651 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 186.69 130.175 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mfr. #" "54"
+			(at 186.69 130.175 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Order" "https://www.digikey.com/en/products/detail/keystone-electronics/54/2254090"
+			(at 186.69 130.175 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d91d8aae-0ae3-4811-98cf-e49fecdeee23")
+		)
+		(pin "2"
+			(uuid "86260e17-79bd-4309-83e1-56a35c17df19")
+		)
+		(instances
+			(project "Untitled"
+				(path "/8c4ecf61-4b10-475d-98a5-bab8adafb6c5/a825eac1-85ac-4d75-bfa4-34eb7c9c199c"
+					(reference "BT3")
+					(unit 1)
+				)
+				(path "/8c4ecf61-4b10-475d-98a5-bab8adafb6c5/fc1c497e-82f6-4955-96b6-54ddf3e4ddd3"
+					(reference "BT1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 62.23 60.96 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-00005f467deb")
+		(property "Reference" "R69"
+			(at 64.008 59.7916 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "280K"
+			(at 64.008 62.103 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
+			(at 60.452 60.96 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 62.23 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 62.23 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mfr. #" "RMCF0603FT280K"
+			(at 62.23 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Order" "https://www.digikey.com/en/products/detail/stackpole-electronics-inc/RMCF0603FT280K/1761337"
+			(at 62.23 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4d27780c-2438-43ec-9e73-985a6f0cc30a")
+		)
+		(pin "2"
+			(uuid "b752ae05-72aa-4fe6-a643-a51e2149e42f")
+		)
+		(instances
+			(project "Untitled"
+				(path "/8c4ecf61-4b10-475d-98a5-bab8adafb6c5/a825eac1-85ac-4d75-bfa4-34eb7c9c199c"
+					(reference "R16")
+					(unit 1)
+				)
+				(path "/8c4ecf61-4b10-475d-98a5-bab8adafb6c5/fc1c497e-82f6-4955-96b6-54ddf3e4ddd3"
+					(reference "R69")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:Polyfuse")
+		(at 186.69 120.015 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-00005f47566d")
+		(property "Reference" "F1"
+			(at 189.23 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Polyfuse"
+			(at 189.23 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Fuse:Fuse_1206_3216Metric_Pad1.42x1.75mm_HandSolder"
+			(at 187.96 125.095 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 186.69 120.015 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 186.69 120.015 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mfr. #" "1206L380SLTHYR"
+			(at 196.85 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Order" "https://www.digikey.com/en/products/detail/littelfuse-inc/1206L380SLTHYR/3305608"
+			(at 186.69 120.015 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "018f4047-0076-4611-a677-6ecedc659e21")
+		)
+		(pin "2"
+			(uuid "357a0580-9889-41e1-bfe5-d2fdc766e627")
+		)
+		(instances
+			(project "Untitled"
+				(path "/8c4ecf61-4b10-475d-98a5-bab8adafb6c5/a825eac1-85ac-4d75-bfa4-34eb7c9c199c"
+					(reference "F3")
+					(unit 1)
+				)
+				(path "/8c4ecf61-4b10-475d-98a5-bab8adafb6c5/fc1c497e-82f6-4955-96b6-54ddf3e4ddd3"
+					(reference "F1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 171.45 64.77 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-00005f4827e2")
+		(property "Reference" "C26"
+			(at 174.625 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "0.1uF"
+			(at 174.625 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
+			(at 172.4152 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 171.45 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 171.45 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mfr. #" "CL10B104KA8NNNC"
+			(at 171.45 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Order" "https://www.digikey.com/product-detail/en/samsung-electro-mechanics/CL10B104KA8NNNC/1276-1006-1-ND/3889092"
+			(at 171.45 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Voltage" "25V"
+			(at 176.53 67.945 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "a22f6603-94bf-432d-8755-6322d5091ba5")
+		)
+		(pin "2"
+			(uuid "958ac7dd-6861-4ffb-a786-5c57275437a3")
+		)
+		(instances
+			(project "Untitled"
+				(path "/8c4ecf61-4b10-475d-98a5-bab8adafb6c5/a825eac1-85ac-4d75-bfa4-34eb7c9c199c"
+					(reference "C17")
+					(unit 1)
+				)
+				(path "/8c4ecf61-4b10-475d-98a5-bab8adafb6c5/fc1c497e-82f6-4955-96b6-54ddf3e4ddd3"
+					(reference "C26")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 127 64.77 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-00005f48bf1e")
+		(property "Reference" "C25"
+			(at 129.921 63.6016 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "4.7uF"
+			(at 129.921 65.913 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
+			(at 127.9652 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 127 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 127 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mfr. #" "C1608X7S1A475K080AC"
+			(at 127 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Order" "https://www.digikey.com/product-detail/en/tdk-corporation/C1608X7S1A475K080AC/445-14258-1-ND/3955924"
+			(at 127 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Voltage" "10V"
+			(at 132.08 67.945 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "32315214-3fca-49e0-9294-c84b40db0757")
+		)
+		(pin "2"
+			(uuid "7d01fb5c-ea5c-401d-870e-bc015c0a9cea")
+		)
+		(instances
+			(project "Untitled"
+				(path "/8c4ecf61-4b10-475d-98a5-bab8adafb6c5/a825eac1-85ac-4d75-bfa4-34eb7c9c199c"
+					(reference "C16")
+					(unit 1)
+				)
+				(path "/8c4ecf61-4b10-475d-98a5-bab8adafb6c5/fc1c497e-82f6-4955-96b6-54ddf3e4ddd3"
+					(reference "C25")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 73.025 46.99 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-00005f48fa37")
+		(property "Reference" "C24"
+			(at 75.946 45.8216 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "0.1uF"
+			(at 75.946 48.133 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
+			(at 73.9902 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 73.025 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 73.025 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mfr. #" "CL10B104KA8NNNC"
+			(at 73.025 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Order" "https://www.digikey.com/product-detail/en/samsung-electro-mechanics/CL10B104KA8NNNC/1276-1006-1-ND/3889092"
+			(at 73.025 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Voltage" "25V"
+			(at 78.105 50.165 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d980a9c4-a995-4a4c-9e1f-454d202a7059")
+		)
+		(pin "2"
+			(uuid "8124755c-3f9f-4209-8b4d-dd31c3631205")
+		)
+		(instances
+			(project "Untitled"
+				(path "/8c4ecf61-4b10-475d-98a5-bab8adafb6c5/a825eac1-85ac-4d75-bfa4-34eb7c9c199c"
+					(reference "C15")
+					(unit 1)
+				)
+				(path "/8c4ecf61-4b10-475d-98a5-bab8adafb6c5/fc1c497e-82f6-4955-96b6-54ddf3e4ddd3"
+					(reference "C24")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 105.41 48.895 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-00005f493212")
+		(property "Reference" "R70"
+			(at 105.41 46.355 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "DNP"
+			(at 105.41 51.435 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
+			(at 105.41 47.117 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 105.41 48.895 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 105.41 48.895 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "02635e66-55a7-4747-b786-c647f07d4ea3")
+		)
+		(pin "2"
+			(uuid "c6fe8a3f-aed2-47ae-bbbb-ef2d48bed8e6")
+		)
+		(instances
+			(project "Untitled"
+				(path "/8c4ecf61-4b10-475d-98a5-bab8adafb6c5/a825eac1-85ac-4d75-bfa4-34eb7c9c199c"
+					(reference "R19")
+					(unit 1)
+				)
+				(path "/8c4ecf61-4b10-475d-98a5-bab8adafb6c5/fc1c497e-82f6-4955-96b6-54ddf3e4ddd3"
+					(reference "R70")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x02_Female")
+		(at 217.17 54.61 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-00005f4a0172")
+		(property "Reference" "J2"
+			(at 217.8812 55.2196 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Conn_01x02_Female"
+			(at 217.8812 57.531 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_1.27mm:PinHeader_1x02_P1.27mm_Vertical"
+			(at 217.17 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 217.17 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 217.17 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "045dbd24-90af-4435-b8f1-bbf8d37f154f")
+		)
+		(pin "2"
+			(uuid "4ff8137e-be96-4dea-8e85-c148486c1a94")
+		)
+		(instances
+			(project "Untitled"
+				(path "/8c4ecf61-4b10-475d-98a5-bab8adafb6c5/a825eac1-85ac-4d75-bfa4-34eb7c9c199c"
+					(reference "J3")
+					(unit 1)
+				)
+				(path "/8c4ecf61-4b10-475d-98a5-bab8adafb6c5/fc1c497e-82f6-4955-96b6-54ddf3e4ddd3"
+					(reference "J2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Comparator:MCP65R46")
+		(at 95.25 58.42 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-00005fb8079b")
+		(property "Reference" "U10"
+			(at 97.79 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MCP65R46"
+			(at 97.79 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6_Handsoldering"
+			(at 95.25 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://ww1.microchip.com/downloads/en/DeviceDoc/22269B.pdf"
+			(at 109.22 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 95.25 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mfr. #" "MCP65R46T-2402E/CHY"
+			(at 95.25 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Order" "https://www.digikey.com/product-detail/en/microchip-technology/MCP65R46T-2402E-CHY/MCP65R46T-2402E-CHYCT-ND/2618485"
+			(at 95.25 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "3"
+			(uuid "55d405d1-741b-4886-a71e-cad08afbc389")
+		)
+		(pin "4"
+			(uuid "5784a7b1-7882-4e7b-97fc-af4512fdbe67")
+		)
+		(pin "6"
+			(uuid "d2d60677-38d4-477b-b765-6df1582ce2a3")
+		)
+		(pin "2"
+			(uuid "f15b3a17-f698-438e-9f05-6dbf974541b2")
+		)
+		(pin "5"
+			(uuid "f349bd72-e8e3-4a12-a867-86a7ddaa33a8")
+		)
+		(pin "1"
+			(uuid "4e626d0f-f510-42f3-aa77-e3d78ba2f6fb")
+		)
+		(instances
+			(project "Untitled"
+				(path "/8c4ecf61-4b10-475d-98a5-bab8adafb6c5/a825eac1-85ac-4d75-bfa4-34eb7c9c199c"
+					(reference "U3")
+					(unit 1)
+				)
+				(path "/8c4ecf61-4b10-475d-98a5-bab8adafb6c5/fc1c497e-82f6-4955-96b6-54ddf3e4ddd3"
+					(reference "U10")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "1K_Custom_Symbol:FPF2123")
+		(at 146.685 49.53 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-00005fb89477")
+		(property "Reference" "U11"
+			(at 146.685 36.195 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "FPF2123"
+			(at 146.685 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5_HandSoldering"
+			(at 147.955 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.onsemi.com/pub/Collateral/FPF2125-D.pdf"
+			(at 146.685 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 146.685 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mfr. #" "FPF2123"
+			(at 146.685 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Order" "https://www.digikey.com/product-detail/en/on-semiconductor/FPF2123/FPF2123CT-ND/1033703"
+			(at 139.065 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4c476119-65a4-4ad6-aab3-81480ba848a5")
+		)
+		(pin "3"
+			(uuid "2dcfd7cf-ee29-4572-9c4d-1f81118f3fbb")
+		)
+		(pin "2"
+			(uuid "d138015e-f38a-407c-bc79-c3729acfa9db")
+		)
+		(pin "5"
+			(uuid "e6528218-2237-451d-a640-bd15443110e3")
+		)
+		(pin "4"
+			(uuid "bfdd19ec-c940-4f21-aa89-d0c2121c9dc0")
+		)
+		(instances
+			(project "Untitled"
+				(path "/8c4ecf61-4b10-475d-98a5-bab8adafb6c5/a825eac1-85ac-4d75-bfa4-34eb7c9c199c"
+					(reference "U6")
+					(unit 1)
+				)
+				(path "/8c4ecf61-4b10-475d-98a5-bab8adafb6c5/fc1c497e-82f6-4955-96b6-54ddf3e4ddd3"
+					(reference "U11")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 118.745 50.165 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-00005fb9809c")
+		(property "Reference" "R71"
+			(at 120.523 48.9966 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "1M"
+			(at 120.523 51.308 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
+			(at 116.967 50.165 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 118.745 50.165 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 118.745 50.165 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mfr. #" "RMCF0603JT1M00"
+			(at 118.745 50.165 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Order" "https://www.digikey.com/en/products/detail/stackpole-electronics-inc/RMCF0603JT1M00/1758066"
+			(at 118.745 50.165 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "02f4351b-5069-4a80-9477-9899247647f0")
+		)
+		(pin "2"
+			(uuid "a3e1de62-599c-4d23-891c-70e175823fdb")
+		)
+		(instances
+			(project "Untitled"
+				(path "/8c4ecf61-4b10-475d-98a5-bab8adafb6c5/a825eac1-85ac-4d75-bfa4-34eb7c9c199c"
+					(reference "R20")
+					(unit 1)
+				)
+				(path "/8c4ecf61-4b10-475d-98a5-bab8adafb6c5/fc1c497e-82f6-4955-96b6-54ddf3e4ddd3"
+					(reference "R71")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 161.925 52.705 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-00005fbaf948")
+		(property "Reference" "R72"
+			(at 165.1 51.435 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "3.09K"
+			(at 166.37 53.975 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
+			(at 163.703 52.705 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 161.925 52.705 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 161.925 52.705 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mfr. #" "RMCF0603FT3K09"
+			(at 161.925 52.705 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Order" "https://www.digikey.com/en/products/detail/stackpole-electronics-inc/RMCF0603FT3K09/1761340"
+			(at 161.925 52.705 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "76d7c312-0f74-46bc-b1e6-5f8127a20a4b")
+		)
+		(pin "2"
+			(uuid "aff365b1-23bc-40d0-a00c-2ab750060737")
+		)
+		(instances
+			(project "Untitled"
+				(path "/8c4ecf61-4b10-475d-98a5-bab8adafb6c5/a825eac1-85ac-4d75-bfa4-34eb7c9c199c"
+					(reference "R21")
+					(unit 1)
+				)
+				(path "/8c4ecf61-4b10-475d-98a5-bab8adafb6c5/fc1c497e-82f6-4955-96b6-54ddf3e4ddd3"
+					(reference "R72")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 62.23 50.8 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-00006392f1bf")
+		(property "Reference" "R68"
+			(at 64.008 49.6316 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100K"
+			(at 64.008 51.943 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
+			(at 60.452 50.8 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 62.23 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 62.23 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mfr. #" "RMCF0603FT100K"
+			(at 62.23 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Order" "https://www.digikey.com/en/products/detail/stackpole-electronics-inc/RMCF0603FT100K/1761112"
+			(at 62.23 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "532a68c4-12f8-4ea4-bb85-b42835b239d6")
+		)
+		(pin "2"
+			(uuid "4b15b69f-164f-49b5-91c7-a9d3d464128e")
+		)
+		(instances
+			(project "Untitled"
+				(path "/8c4ecf61-4b10-475d-98a5-bab8adafb6c5/a825eac1-85ac-4d75-bfa4-34eb7c9c199c"
+					(reference "R15")
+					(unit 1)
+				)
+				(path "/8c4ecf61-4b10-475d-98a5-bab8adafb6c5/fc1c497e-82f6-4955-96b6-54ddf3e4ddd3"
+					(reference "R68")
+					(unit 1)
+				)
+			)
+		)
+	)
+)
